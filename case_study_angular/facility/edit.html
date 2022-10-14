@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>Chỉnh sửa dịch vụ</title>
+    <title>Chỉnh sửa khách hàng</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -89,7 +89,7 @@
                         <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
                            aria-expanded="false">Khách hàng</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="">Danh sách khách hàng</a></li>
+                            <li><a class="dropdown-item" href="http://localhost:63342/C0522G1_HuynhTrungThuyen_module5/case_study_angular/customer/list.html?">Danh sách khách hàng</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -110,7 +110,7 @@
                     </li>
 
                     <li class="nav-item dropdown ms-3">
-                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle text-dark" href="http://localhost:63342/C0522G1_HuynhTrungThuyen_module5/case_study_angular/facility/create.html?" role="button" data-bs-toggle="dropdown"
                            aria-expanded="false">Hợp đồng</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="">Danh sách hợp đồng</a></li>
@@ -128,105 +128,91 @@
 </header>
 
 <div class="mx-5 px-5 pt-3">
-    <h2 class="text-center fw-bold text-light">CHỈNH SỬA DỊCH VỤ</h2>
+    <h2 class="text-center fw-bold text-light">CHỈNH SỬA KHÁCH HÀNG</h2>
 
     <p class="text-center">
-        <a href="http://localhost:63342/C0522G1_HuynhTrungThuyen_module5/case_study_angular/facility/list.html?">
-            <i class="fa-solid fa-backward"></i> Quay lại trang danh sách dịch vụ</a>
+        <a href="http://localhost:63342/C0522G1_HuynhTrungThuyen_module5/case_study_angular/customer/list.html?">
+            <i class="fa-solid fa-backward"></i> Quay lại trang danh sách khách hàng</a>
     </p>
 
     <div class="d-flex justify-content-center">
-        <form class="w-50 border border-2 border-success p-3 rounded formCSS" action="">
-            <div class="mt-3 form-group">
-                <label for="name" class="h6">Tên dịch vụ:</label>
+        <form class="w-50 border border-2 border-success p-3 rounded formCSS" action="" method="POST" novalidate="novalidate">
+            <div class="form-group">
+                <label for="name" class="h6">Tên khách hàng:</label>
                 <div class="input-group">
-                    <input type="text" id="name" class="form-control" placeholder="Nhập tên dịch vụ.." required
-                           pattern="^([\p{Lu}][\p{Ll}]{1,8})(\s([\p{Lu}]|[\p{Lu}][\p{Ll}]{1,10})){0,5}( \d*)?$"
-                           title="Tên dịch vụ được phép chứa số và các kí tự đầu tiên của mỗi từ phải viết hoa."/>
-                    <span class="input-group-text"><i class="fa-solid fa-file-signature"></i></span>
+                    <input type="text" id="name" class="form-control" placeholder="Nhập tên khách hàng.."/>
+                    <span class="input-group-text"><i class="fa-solid fa-person-circle-question"></i></span>
                 </div>
             </div>
 
             <div class="mt-3 form-group">
-                <label for="area" class="h6">Diện tích sử dụng (m<sup>2</sup>):</label>
+                <label for="dateOfBirth" class="h6">Ngày sinh:</label>
+                <input type="date" id="dateOfBirth" class="form-control"/>
+            </div>
+
+<!--            <div class="mt-3 form-group">-->
+<!--                <label class="h6">Giới tính:</label>-->
+<!--                <div class="d-flex">-->
+<!--                    <label class="d-block me-4">-->
+<!--                        <input type="radio" value="0"/> Nam-->
+<!--                        <i class="fa-solid fa-mars"></i>-->
+<!--                    </label>-->
+
+<!--                    <label class="d-block me-4">-->
+<!--                        <input type="radio" value="1"/> Nữ-->
+<!--                        <i class="fa-solid fa-venus"></i>-->
+<!--                    </label>-->
+
+<!--                    <label class="d-block">-->
+<!--                        <input type="radio" value="2"/> LGBT-->
+<!--                        <i class="fa-solid fa-heart"></i>-->
+<!--                    </label>-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <div class="mt-3 form-group">
+                <label for="idCard" class="h6">Số CMND/CCCD:</label>
                 <div class="input-group">
-                    <input type="number" id="area" class="form-control" placeholder="Nhập diện tích sử dụng.."
-                           required pattern="^[1-9]\d*$" title="Diện tích sử dụng phải là số nguyên dương."/>
-                    <span class="input-group-text"><i class="fa-solid fa-chart-area"></i></span>
+                    <input type="text" id="idCard" class="form-control" placeholder="Nhập số CMND/CCCD.."/>
+                    <span class="input-group-text"><i class="fa-solid fa-id-card"></i></span>
                 </div>
             </div>
 
             <div class="mt-3 form-group">
-                <label for="cost" class="h6">Chi phí thuê (VNĐ):</label>
+                <label for="phone" class="h6">Số điện thoại:</label>
                 <div class="input-group">
-                    <input type="number" id="cost" class="form-control" placeholder="Nhập chi phí thuê.."
-                           required pattern="^[1-9]\d*$" title="Chi phí thê phải là số nguyên dương."/>
-                    <span class="input-group-text"><i class="fa-solid fa-dollar-sign"></i></span>
+                    <input type="text" id="phone" class="form-control" placeholder="Nhập SĐT.."/>
+                    <span class="input-group-text"><i class="fa-solid fa-square-phone"></i></span>
                 </div>
             </div>
 
             <div class="mt-3 form-group">
-                <label for="maxPeople" class="h6">Số người tối đa:</label>
+                <label for="email" class="h6">Email:</label>
                 <div class="input-group">
-                    <input type="number" id="maxPeople" class="form-control" placeholder="Nhập số người tối đa.."
-                           required pattern="^[1-9]\d*$" title="Số người tối đa phải là số nguyên dương."/>
-                    <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
+                    <input type="text" id="email" class="form-control" placeholder="Nhập email.."/>
+                    <span class="input-group-text"><i class="fa-solid fa-envelope-circle-check"></i></span>
                 </div>
             </div>
 
             <div class="mt-3 form-group">
-                <label for="standardRoom" class="h6">Tiêu chuẩn phòng:</label>
+                <label for="address" class="h6">Địa chỉ:</label>
                 <div class="input-group">
-                    <input type="text" id="standardRoom" class="form-control" placeholder="Nhập tiêu chuẩn phòng.."/>
-                    <span class="input-group-text"><i class="fa-solid fa-star"></i></span>
+                    <input type="text" id="address" class="form-control" placeholder="Nhập địa chỉ.."/>
+                    <span class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></span>
                 </div>
             </div>
 
             <div class="mt-3 form-group">
-                <label for="description" class="h6">Mô tả tiện nghi khác:</label>
+                <label class="h6" for="customerType">Loại khách:</label>
                 <div class="input-group">
-                    <input type="text" id="description" class="form-control" placeholder="Nhập mô tả tiện nghi khác.."/>
-                    <span class="input-group-text"><i class="fa-solid fa-book"></i></span>
-                </div>
-            </div>
-
-            <div class="mt-3 form-group">
-                <label for="poolArea" class="h6">Diện tích hồ bơi (m<sup>2</sup>):</label>
-                <div class="input-group">
-                    <input type="number" id="poolArea" class="form-control" placeholder="Nhập diện tích hồ bơi.."
-                           pattern="^[1-9]\d*| *$" title="Diện tích hồ bơi phải là số nguyên dương."/>
-                    <span class="input-group-text"><i class="fa-solid fa-person-swimming"></i></span>
-                </div>
-            </div>
-
-            <div class="mt-3 form-group">
-                <label for="numberOfFloors" class="h6">Số tầng:</label>
-                <div class="input-group">
-                    <input type="number" id="numberOfFloors" class="form-control" placeholder="Nhập số tầng.."
-                           pattern="^[1-9]\d*| *$" title="Số tầng phải là số nguyên dương."/>
-                    <span class="input-group-text"><i class="fa-solid fa-building"></i></span>
-                </div>
-            </div>
-
-            <div class="mt-3 form-group">
-                <label for="facilityFree" class="h6">Dịch vụ miễn phí đi kèm:</label>
-                <div class="input-group">
-                    <input type="text" id="facilityFree" class="form-control"
-                           placeholder="Nhập dịch vụ miễn phí đi kèm.."/>
-                    <span class="input-group-text"><i class="fa-solid fa-gift"></i></span>
-                </div>
-            </div>
-
-            <div class="mt-3 form-group">
-                <label class="h6" for="rentType">Kiểu thuê:</label>
-                <div class="input-group">
-                    <select id="rentType" class="form-select">
-                        <option>Năm</option>
-                        <option>Tháng</option>
-                        <option>Ngày</option>
-                        <option>Giờ</option>
+                    <select id="customerType" class="form-select">
+                        <option>Diamond</option>
+                        <option>Platium</option>
+                        <option>Gold</option>
+                        <option>Silver</option>
+                        <option>Member</option>
                     </select>
-                    <span class="input-group-text"><i class="fa-solid fa-business-time"></i></span>
+                    <span class="input-group-text"><i class="fa-solid fa-ranking-star"></i></span>
                 </div>
             </div>
 
