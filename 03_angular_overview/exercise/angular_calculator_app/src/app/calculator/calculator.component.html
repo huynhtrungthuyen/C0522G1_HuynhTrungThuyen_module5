@@ -1,0 +1,24 @@
+<h1 style="color: blue">Calculator app</h1>
+
+<table cellpadding="5">
+  <tr>
+    <td>Number 1: </td>
+    <td colspan="3"><input type="number" [(ngModel)]="num1"/></td>
+  </tr>
+
+  <tr>
+    <td>Number 2: </td>
+    <td colspan="3"><input type="number" [(ngModel)]="num2"/></td>
+  </tr>
+
+  <tr>
+    <td><button (click)="getAddition()">Addition(+)</button></td>
+    <td><button (click)="getSubtraction()">Subtraction(-)</button></td>
+    <td><button (click)="getMultiplication()">Multiplication(X)</button></td>
+    <td><button (click)="getDivision()">Division(/)</button></td>
+  </tr>
+
+  <tr>
+    <td colspan="4"><h3 style="color: red">Result: <span style="color: green">{{result}}</span></h3></td>
+  </tr>
+</table>
