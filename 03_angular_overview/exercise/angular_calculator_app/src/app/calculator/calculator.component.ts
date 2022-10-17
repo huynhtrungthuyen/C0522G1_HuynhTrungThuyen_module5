@@ -8,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class CalculatorComponent implements OnInit {
   num1 = 0;
   num2 = 0;
-  result: any = "";
+  result: any;
 
   constructor() {
   }
