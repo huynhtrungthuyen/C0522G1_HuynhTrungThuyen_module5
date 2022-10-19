@@ -1,0 +1,202 @@
+<div class="p-3">
+  <h2 class="text-center fw-bold text-light my-3">DANH SÁCH KHÁCH HÀNG</h2>
+
+  <nav class="navbar navbar-expand-lg py-0 my-0">
+    <div class="container-fluid">
+      <a href="">
+        <button class="btn btn-primary btn-outline-secondary btn-sm">
+          <span class="fa-solid fa-person-circle-plus text-light h5 my-auto me-1"></span>
+          <span class="text-light"> Thêm mới khách hàng</span>
+        </button>
+      </a>
+
+      <form class="d-flex my-2" role="search" action="">
+        <input class="form-control me-2" type="text" placeholder="Nhập tên.." aria-label="Search"
+               name="nameSearch">
+
+        <input class="form-control me-2" type="text" placeholder="Nhập địa chỉ.." aria-label="Search"
+               name="addressSearch">
+
+        <input class="form-control me-2" type="text" placeholder="Nhập SĐT.." aria-label="Search"
+               name="phoneSearch">
+        <button class="btn btn-light btn-outline-primary" type="submit" name="action" value="search">
+          <i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    </div>
+  </nav>
+
+  <table class="table table-light table-striped table-bordered" id="customerTable">
+    <thead>
+    <tr class="table-dark text-light">
+      <th class="text-center"><i class="fa-sharp fa-solid fa-bolt"></i></th>
+      <th>Tên khách hàng</th>
+      <th>Ngày sinh</th>
+      <th>Giới tính</th>
+      <th>SĐT</th>
+      <th>Địa chỉ</th>
+      <th>Loại khách</th>
+
+      <th class="text-center">Sửa</th>
+      <th class="text-center">Xóa</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td class="text-center">1</td>
+      <td>Hồ Thị Thủy Lợi</td>
+      <td>12/12/1997</td>
+      <td>LGBT</td>
+      <td>0905154665</td>
+      <td>phường Mân Đàn, quận Sơn Trà, Đà Nẵng</td>
+      <td>Diamond</td>
+      <td class="text-center">
+        <a href="http://localhost:63342/C0522G1_HuynhTrungThuyen_module5/case_study_angular/customer/edit.html?">
+          <button class="btn btn-success btn-outline-secondary btn-sm">
+            <span class="fa-solid fa-user-pen text-light h6 m-auto px-2"></span>
+          </button>
+        </a>
+      </td>
+      <td class="text-center">
+        <button data-bs-toggle="modal" data-bs-target="#deleteCustomer" class="btn btn-danger btn-outline-secondary btn-sm">
+          <span class="fa-solid fa-person-circle-minus text-light h6 m-auto px-2"></span>
+        </button>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="text-center">2</td>
+      <td>Võ Thị Thủy Tiên</td>
+      <td>20/03/2000</td>
+      <td>Nữ</td>
+      <td>0905154644</td>
+      <td>huyện Núi Thành, Quảng Nam</td>
+      <td>Gold</td>
+      <td class="text-center">
+        <a href="http://localhost:63342/C0522G1_HuynhTrungThuyen_module5/case_study_angular/customer/edit.html?">
+          <button class="btn btn-success btn-outline-secondary btn-sm">
+            <span class="fa-solid fa-user-pen text-light h6 m-auto px-2"></span>
+          </button>
+        </a>
+      </td>
+      <td class="text-center">
+        <button data-bs-toggle="modal" data-bs-target="#deleteCustomer" class="btn btn-danger btn-outline-secondary btn-sm">
+          <span class="fa-solid fa-person-circle-minus text-light h6 m-auto px-2"></span>
+        </button>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="text-center">3</td>
+      <td>Đặng Văn Tý</td>
+      <td>12/12/2001</td>
+      <td>Nam</td>
+      <td>0905154611</td>
+      <td>bản LakKonKu, Gia Lai</td>
+      <td>Gold</td>
+      <td class="text-center">
+        <a href="http://localhost:63342/C0522G1_HuynhTrungThuyen_module5/case_study_angular/customer/edit.html?">
+          <button class="btn btn-success btn-outline-secondary btn-sm">
+            <span class="fa-solid fa-user-pen text-light h6 m-auto px-2"></span>
+          </button>
+        </a>
+      </td>
+      <td class="text-center">
+        <button data-bs-toggle="modal" data-bs-target="#deleteCustomer" class="btn btn-danger btn-outline-secondary btn-sm">
+          <span class="fa-solid fa-person-circle-minus text-light h6 m-auto px-2"></span>
+        </button>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="text-center">4</td>
+      <td>Hồ Hải Học</td>
+      <td>12/12/1995</td>
+      <td>Nam</td>
+      <td>0905154333</td>
+      <td>thánh địa Mỹ Sơn, Quảng Nam</td>
+      <td>Member</td>
+      <td class="text-center">
+        <a href="http://localhost:63342/C0522G1_HuynhTrungThuyen_module5/case_study_angular/customer/edit.html?">
+          <button class="btn btn-success btn-outline-secondary btn-sm">
+            <span class="fa-solid fa-user-pen text-light h6 m-auto px-2"></span>
+          </button>
+        </a>
+      </td>
+      <td class="text-center">
+        <button data-bs-toggle="modal" data-bs-target="#deleteCustomer" class="btn btn-danger btn-outline-secondary btn-sm">
+          <span class="fa-solid fa-person-circle-minus text-light h6 m-auto px-2"></span>
+        </button>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="text-center">5</td>
+      <td>Hồ Bảo Ân</td>
+      <td>14/02/1993</td>
+      <td>Nam</td>
+      <td>0905154555</td>
+      <td>bản LakKonKu, Đắk Lắk</td>
+      <td>Diamond</td>
+      <td class="text-center">
+        <a href="http://localhost:63342/C0522G1_HuynhTrungThuyen_module5/case_study_angular/customer/edit.html?">
+          <button class="btn btn-success btn-outline-secondary btn-sm">
+            <span class="fa-solid fa-user-pen text-light h6 m-auto px-2"></span>
+          </button>
+        </a>
+      </td>
+      <td class="text-center">
+        <button data-bs-toggle="modal" data-bs-target="#deleteCustomer" class="btn btn-danger btn-outline-secondary btn-sm">
+          <span class="fa-solid fa-person-circle-minus text-light h6 m-auto px-2"></span>
+        </button>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="text-center">60</td>
+      <td>Bùi Hùng</td>
+      <td>12/12/1993</td>
+      <td>Nam</td>
+      <td>0905154111</td>
+      <td>chợ Hòa Khánh, Đà Nẵng</td>
+      <td>Platium</td>
+      <td class="text-center">
+        <a href="http://localhost:63342/C0522G1_HuynhTrungThuyen_module5/case_study_angular/customer/edit.html?">
+          <button class="btn btn-success btn-outline-secondary btn-sm">
+            <span class="fa-solid fa-user-pen text-light h6 m-auto px-2"></span>
+          </button>
+        </a>
+      </td>
+      <td class="text-center">
+        <button data-bs-toggle="modal" data-bs-target="#deleteCustomer" class="btn btn-danger btn-outline-secondary btn-sm">
+          <span class="fa-solid fa-person-circle-minus text-light h6 m-auto px-2"></span>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal fade" id="deleteCustomer" tabindex="-1" aria-labelledby="exampleModalLabel1"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modalCSS">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel1">Bạn có chắc chắn muốn xóa?</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <form action="">
+        <div class="modal-body">
+          <span class="h6">Khách hàng:</span><strong id="nameDelete" class="text-danger ps-2"></strong>
+          <input type="hidden" name="idDelete" id="idDelete" readonly/>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+          <button type="submit" class="btn btn-danger" value="delete">Xóa</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -73,3 +73,7 @@ input:valid {
 .formCSS {
   background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?w=2000");
 }
+
+.modalCSS {
+  background-image: url("https://images.unsplash.com/photo-1607513746994-51f730a44832?ixlib=rb-1.2.1&w=1080&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb");
+}
