@@ -1,0 +1,120 @@
+<div class="p-3 px-5">
+  <h2 class="text-center fw-bold text-light my-3">DANH SÁCH KHÁCH HÀNG</h2>
+
+  <nav class="navbar navbar-expand-lg py-0 my-0">
+    <div class="container-fluid">
+      <a routerLink="/customer/create">
+        <button class="btn btn-primary btn-outline-secondary">
+          <span class="fa-solid fa-person-circle-plus text-light h5 my-auto me-1"></span>
+          <span class="text-light"> Thêm mới khách hàng</span>
+        </button>
+      </a>
+
+      <div class="d-flex my-2" role="search">
+        <input class="form-control me-2" type="text" placeholder="Nhập tên.." aria-label="Search"
+               name="nameSearch">
+
+        <input class="form-control me-2" type="text" placeholder="Nhập địa chỉ.." aria-label="Search"
+               name="addressSearch">
+
+        <input class="form-control me-2" type="text" placeholder="Nhập SĐT.." aria-label="Search"
+               name="phoneSearch">
+        <button class="btn btn-light btn-outline-primary" type="submit" name="action" value="search">
+          <i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <table class="table table-light table-striped table-bordered" id="customerTable">
+    <thead>
+    <tr class="table-dark text-light">
+      <th class="text-center"><i class="fa-sharp fa-solid fa-bolt"></i></th>
+      <th>Tên khách hàng</th>
+      <th>Ngày sinh</th>
+      <th>Giới tính</th>
+      <th>Số CMND/CCCD</th>
+      <th>SĐT</th>
+      <th>Địa chỉ</th>
+      <th>Email</th>
+      <th>Loại khách</th>
+      <th class="text-center">Sửa</th>
+      <th class="text-center">Xóa</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let item of customers; index as i">
+      <td class="text-center">{{i + 1}}</td>
+      <td>{{item.customerName}}</td>
+      <td>{{item.customerBirthday | date: "dd/MM/yyyy"}}</td>
+<!--      <td>-->
+<!--        <span *ngIf="item.customerGender === 0">Nam</span>-->
+<!--        <span *ngIf="item.customerGender === 1">Nữ</span>-->
+<!--        <span *ngIf="item.customerGender === 2">LGBT</span>-->
+<!--      </td>-->
+      <td>{{item.customerGender}}</td>
+      <td>{{item.customerIdCard}}</td>
+      <td>{{item.customerPhone}}</td>
+      <td>{{item.customerAddress}}</td>
+      <td>{{item.customerEmail}}</td>
+      <td>{{item.customerType}}</td>
+      <td class="text-center">
+        <a routerLink="/customer/edit/{{item.customerId}}">
+          <button class="btn btn-success btn-outline-secondary btn-sm">
+            <span class="fa-solid fa-user-pen text-light h6 m-auto px-2"></span>
+          </button>
+        </a>
+      </td>
+      <td class="text-center">
+        <button data-bs-toggle="modal" data-bs-target="#deleteCustomer"
+                class="btn btn-danger btn-outline-secondary btn-sm"
+                (click)="getInfoCustomerDelete(item.customerName, item.customerId)">
+          <span class="fa-solid fa-person-circle-minus text-light h6 m-auto px-2"></span>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <nav aria-label="..." class="justify-content-center d-flex">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" (click)="previos()" *ngIf="curPage > 1">&laquo; Trang trước</a>
+      </li>
+      <li class="page-item disabled" *ngIf="curPage <= 1">
+        <a class="page-link">&laquo;</a>
+      </li>
+
+      <li class="page-item"><a class="page-link disabled" href="" [text]="curPage + ' / ' + totalPage"></a>
+      </li>
+
+      <li class="page-item">
+        <a class="page-link" (click)="next()" *ngIf="curPage < totalPage">Trang sau &raquo;</a>
+      </li>
+      <li class="page-item disabled" *ngIf="curPage >= totalPage">
+        <a class="page-link">&raquo;</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="modal fade" id="deleteCustomer" tabindex="-1" aria-labelledby="exampleModalLabel1"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modalCSS">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel1">Bạn có chắc chắn muốn xóa?</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <span class="h6">Khách hàng:</span><strong class="text-danger ps-2">{{customerNameDelete}}</strong>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteCustomer()">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,15 @@
-export class Facility {
-  // private facilityId: string;
-  // private facilityName: string;
-  // private facilityArea: number;
-  // private rentCost: number;
-  // private maxPeople: number;
-  // private standardRoom: string;
-  // private descriptionOtherConvenience: string;
-  // private poolArea: number;
-  // private numberOfFloors: number;
-  // private facilityFree: string;
-  // private rentType: string;
-  // private facilityType: string;
+export interface Facility {
+  facilityId?: number;
+  facilityName?: string;
+  facilityArea?: number;
+  rentCost?: number;
+  maxPeople?: number;
+  standardRoom?: string;
+  descriptionOtherConvenience?: string;
+  poolArea?: number;
+  numberOfFloors?: number;
+  facilityFree?: string;
+  rentType?: string;
+  facilityType?: string;
+  facilityImage?: string;
 }

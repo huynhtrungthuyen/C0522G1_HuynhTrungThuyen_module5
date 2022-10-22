@@ -8,6 +8,7 @@ import {ProductListComponent} from './product/product-list/product-list.componen
 import {ReactiveFormsModule} from '@angular/forms';
 import {ProductEditComponent} from './product/product-edit/product-edit.component';
 import {ProductDeleteComponent} from './product/product-delete/product-delete.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {ProductDeleteComponent} from './product/product-delete/product-delete.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
