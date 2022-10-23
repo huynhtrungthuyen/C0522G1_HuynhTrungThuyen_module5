@@ -1,5 +1,5 @@
 <div class="p-3 px-5">
-  <h2 class="text-center fw-bold text-light my-3">DANH SÁCH KHÁCH HÀNG</h2>
+  <h2 class="text-center fw-bold text-light mt-3">DANH SÁCH KHÁCH HÀNG</h2>
 
   <nav class="navbar navbar-expand-lg py-0 my-0">
     <div class="container-fluid">
@@ -45,13 +45,8 @@
     <tbody>
     <tr *ngFor="let item of customers; index as i">
       <td class="text-center">{{i + 1}}</td>
-      <td>{{item.customerName}}</td>
+      <td>{{item.customerName | titlecase}}</td>
       <td>{{item.customerBirthday | date: "dd/MM/yyyy"}}</td>
-<!--      <td>-->
-<!--        <span *ngIf="item.customerGender === 0">Nam</span>-->
-<!--        <span *ngIf="item.customerGender === 1">Nữ</span>-->
-<!--        <span *ngIf="item.customerGender === 2">LGBT</span>-->
-<!--      </td>-->
       <td>{{item.customerGender}}</td>
       <td>{{item.customerIdCard}}</td>
       <td>{{item.customerPhone}}</td>

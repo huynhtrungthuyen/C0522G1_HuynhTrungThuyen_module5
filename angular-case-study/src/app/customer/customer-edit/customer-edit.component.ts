@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CustomerService} from '../../service/customer.service';
 
@@ -13,6 +13,9 @@ export class CustomerEditComponent implements OnInit {
   customerId: number;
   customerTypeList: string[] = ['Diamond', 'Platinium', 'Gold', 'Silver', 'Member'];
 
+  minAge = (new Date().getFullYear() - 80) + '-01-01';
+  maxAge = (new Date().getFullYear() - 18) + '-12-31';
+
   constructor(private customerService: CustomerService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
@@ -24,14 +27,14 @@ export class CustomerEditComponent implements OnInit {
 
     this.customerFormGroup = new FormGroup({
       customerId: new FormControl(customer.customerId),
-      customerName: new FormControl(customer.customerName),
-      customerBirthday: new FormControl(customer.customerBirthday),
-      customerGender: new FormControl(customer.customerGender),
-      customerIdCard: new FormControl(customer.customerIdCard),
-      customerPhone: new FormControl(customer.customerPhone),
-      customerEmail: new FormControl(customer.customerEmail),
-      customerAddress: new FormControl(customer.customerAddress),
-      customerType: new FormControl(customer.customerType)
+      customerName: new FormControl(customer.customerName, Validators.required),
+      customerBirthday: new FormControl(customer.customerBirthday, this.checkMinAge18AndMaxAge80),
+      customerGender: new FormControl(customer.customerGender, Validators.required),
+      customerIdCard: new FormControl(customer.customerIdCard, [Validators.required, Validators.pattern('^\\d{9}$|^\\d{12}$')]),
+      customerPhone: new FormControl(customer.customerPhone, [Validators.required, Validators.pattern('(0|[(]84[)][+])9[01]\\d{7}')]),
+      customerEmail: new FormControl(customer.customerEmail, [Validators.required, Validators.email]),
+      customerAddress: new FormControl(customer.customerAddress, Validators.required),
+      customerType: new FormControl(customer.customerType, Validators.required)
     });
   }
 
@@ -40,5 +43,12 @@ export class CustomerEditComponent implements OnInit {
     this.customerService.updateCustomer(id, customer);
     alert('Cập nhật thành công!');
     this.router.navigateByUrl('customer');
+  }
+
+  checkMinAge18AndMaxAge80(abstractControl: AbstractControl): any {
+    const formYear = Number(abstractControl.value.substr(0, 4));
+    const curYear = new Date().getFullYear();
+
+    return (curYear - formYear >= 18 && curYear - formYear <= 80) ? null : {invalid18_80: true};
   }
 }

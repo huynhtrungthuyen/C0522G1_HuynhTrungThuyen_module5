@@ -91,7 +91,7 @@ export class CustomerService {
     return this.customers;
   }
 
-  saveFacility(customer): void {
+  saveCustomer(customer): void {
     this.customers.push(customer);
   }
 

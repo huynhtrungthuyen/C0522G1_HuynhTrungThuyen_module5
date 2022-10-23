@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FacilityService} from '../../service/facility.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -26,18 +26,18 @@ export class FacilityEditComponent implements OnInit {
 
     this.facilityFormGroup = new FormGroup({
       facilityId: new FormControl(facility.facilityId),
-      facilityName: new FormControl(facility.facilityName),
-      facilityArea: new FormControl(facility.facilityArea),
-      rentCost: new FormControl(facility.rentCost),
-      maxPeople: new FormControl(facility.maxPeople),
+      facilityName: new FormControl(facility.facilityName, [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]),
+      facilityArea: new FormControl(facility.facilityArea, [Validators.required, Validators.pattern('^[1-9]\\d*$')]),
+      rentCost: new FormControl(facility.rentCost, [Validators.required, Validators.pattern('^[1-9]\\d*$')]),
+      maxPeople: new FormControl(facility.maxPeople, [Validators.required, Validators.pattern('^[1-9]\\d*$')]),
       standardRoom: new FormControl(facility.standardRoom),
       descriptionOtherConvenience: new FormControl(facility.descriptionOtherConvenience),
       poolArea: new FormControl(facility.poolArea),
       numberOfFloors: new FormControl(facility.numberOfFloors),
       facilityFree: new FormControl(facility.facilityFree),
-      rentType: new FormControl(facility.rentType),
-      facilityType: new FormControl(facility.facilityType),
-      facilityImage: new FormControl(facility.facilityImage)
+      rentType: new FormControl(facility.rentType, Validators.required),
+      facilityType: new FormControl(facility.facilityType, Validators.required),
+      facilityImage: new FormControl(facility.facilityImage, Validators.required)
     });
   }
 

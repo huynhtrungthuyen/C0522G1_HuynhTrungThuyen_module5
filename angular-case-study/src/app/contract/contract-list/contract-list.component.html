@@ -1,0 +1,63 @@
+<div class="px-5">
+  <div class="p-3 px-5 mx-5">
+    <h2 class="text-center fw-bold text-light mt-3">DANH SÁCH HỢP ĐỒNG</h2>
+
+    <nav class="navbar navbar-expand-lg py-0 my-0 pb-2">
+      <div class="container-fluid">
+        <a routerLink="/contract/create">
+          <button class="btn btn-primary btn-outline-secondary">
+            <span class="fa-solid fa-plus text-light h6 my-auto me-1"></span>
+            <span class="text-light"> Thêm mới hợp đồng</span>
+          </button>
+        </a>
+      </div>
+    </nav>
+
+    <table class="table table-light table-striped table-bordered" id="customerTable">
+      <thead>
+      <tr class="table-dark text-light">
+        <th class="text-center"><i class="fa-sharp fa-solid fa-bolt"></i></th>
+        <th>Tên khách hàng</th>
+        <th>Tên dịch vụ</th>
+        <th>Ngày làm hợp đồng</th>
+        <th>Ngày kết thúc hợp đồng</th>
+        <th>Tiền đặt cọc</th>
+        <th>Tổng tiền</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let item of contracts; index as i">
+        <td class="text-center">{{i + 1}}</td>
+        <td>{{item.customer.customerName}}</td>
+        <td>{{item.facility.facilityName}}</td>
+        <td>{{item.startDate | date: "dd/MM/yyyy"}}</td>
+        <td>{{item.endDate | date: "dd/MM/yyyy"}}</td>
+        <td>{{item.deposit | currency: "VND"}}</td>
+        <td>{{item.deposit + item.facility.rentCost | currency: "VND"}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <nav aria-label="..." class="justify-content-center d-flex">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" (click)="previos()" *ngIf="curPage > 1">&laquo; Trang trước</a>
+        </li>
+        <li class="page-item disabled" *ngIf="curPage <= 1">
+          <a class="page-link">&laquo;</a>
+        </li>
+
+        <li class="page-item"><a class="page-link disabled" href="" [text]="curPage + ' / ' + totalPage"></a>
+        </li>
+
+        <li class="page-item">
+          <a class="page-link" (click)="next()" *ngIf="curPage < totalPage">Trang sau &raquo;</a>
+        </li>
+        <li class="page-item disabled" *ngIf="curPage >= totalPage">
+          <a class="page-link">&raquo;</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
