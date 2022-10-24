@@ -1,0 +1,14 @@
+<h1>Xoá danh mục sản phẩm</h1>
+<a routerLink="">Quay lại danh sách sản phẩm</a> | <a routerLink="/category">Quay lại danh sách danh mục sản phẩm</a>
+<form [formGroup]="categoryForm" (ngSubmit)="deleteCategory(id)" *ngIf="categoryForm != undefined">
+  <table>
+    <tr>
+      <td>Tên danh mục:</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button>Xoá</button></td>
+    </tr>
+  </table>
+</form>

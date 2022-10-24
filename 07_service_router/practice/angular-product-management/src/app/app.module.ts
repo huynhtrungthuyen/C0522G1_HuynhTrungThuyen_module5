@@ -8,7 +8,11 @@ import {ProductListComponent} from './product/product-list/product-list.componen
 import {ReactiveFormsModule} from '@angular/forms';
 import {ProductEditComponent} from './product/product-edit/product-edit.component';
 import {ProductDeleteComponent} from './product/product-delete/product-delete.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import {HttpClientModule} from '@angular/common/http';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { CategoryCreateComponent } from './category/category-create/category-create.component';
+import { CategoryEditComponent } from './category/category-edit/category-edit.component';
+import { CategoryDeleteComponent } from './category/category-delete/category-delete.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +20,17 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ProductCreateComponent,
     ProductListComponent,
     ProductEditComponent,
-    ProductDeleteComponent
+    ProductDeleteComponent,
+    CategoryListComponent,
+    CategoryCreateComponent,
+    CategoryEditComponent,
+    CategoryDeleteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

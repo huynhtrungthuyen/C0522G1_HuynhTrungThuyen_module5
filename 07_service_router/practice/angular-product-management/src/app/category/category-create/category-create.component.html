@@ -1,0 +1,16 @@
+<h1>Tạo danh mục mới</h1>
+<a routerLink="">Quay lại danh sách sản phẩm</a> | <a routerLink="/category">Quay lại danh sách danh mục sản phẩm</a>
+<form [formGroup]="categoryForm" (ngSubmit)="submit()">
+  <table>
+    <tr>
+      <td>Tên danh mục:</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button>Tạo mới</button>
+      </td>
+    </tr>
+  </table>
+</form>

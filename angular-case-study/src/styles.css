@@ -35,7 +35,7 @@ input:valid {
 
 .animate-fading {
   width: 100%;
-  animation: fading 10s infinite
+  animation: fading 9s infinite
 }
 
 @keyframes fading {

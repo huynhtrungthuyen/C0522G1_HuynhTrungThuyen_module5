@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "IPhone 11",
+      "price": 1560000,
+      "description": "Like new",
+      "category": {
+        "id": 1,
+        "name": "Điện tử"
+      }
+    },
+    {
+      "id": 3,
+      "name": "IPhone X",
+      "price": 968000,
+      "description": "97%",
+      "category": {
+        "id": 1,
+        "name": "Điện tử"
+      }
+    },
+    {
+      "id": 4,
+      "name": "IPhone 8",
+      "price": 7540000,
+      "description": "98%",
+      "category": {
+        "name": "Vàng mã",
+        "id": 4
+      }
+    },
+    {
+      "name": "IPhone 13 Pro Max",
+      "price": 10000000,
+      "description": "Not ok",
+      "category": {
+        "id": 3,
+        "name": "Thức ăn"
+      },
+      "id": 5
+    },
+    {
+      "name": "Dép lào",
+      "price": 12000,
+      "description": "ok",
+      "category": {
+        "id": 3,
+        "name": "Thức ăn"
+      },
+      "id": 6
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Điện tử"
+    },
+    {
+      "id": 2,
+      "name": "Quần áo"
+    },
+    {
+      "id": 3,
+      "name": "Thức ăn"
+    },
+    {
+      "name": "Vàng mã",
+      "id": 4
+    },
+    {
+      "name": "Đồ chơi",
+      "id": 5
+    }
+  ]
+}

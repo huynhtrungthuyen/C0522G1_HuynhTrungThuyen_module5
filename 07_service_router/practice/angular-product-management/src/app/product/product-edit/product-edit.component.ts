@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {CategoryService} from '../../service/category.service';
+import {Category} from '../../model/category';
 
 @Component({
   selector: 'app-product-edit',
@@ -10,29 +12,46 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class ProductEditComponent implements OnInit {
   productForm: FormGroup;
-  productId: number;
+  id: number;
+  categoryList: Category[] = [];
 
   constructor(private productService: ProductService,
+              private categoryService: CategoryService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) { }
-
-  ngOnInit(): void {
-    this.productId = Number(this.activatedRoute.snapshot.params.productId);
-
-    const product = this.productService.findById(this.productId);
-
-    this.productForm = new FormGroup({
-      id: new FormControl(product.id),
-      name: new FormControl(product.name),
-      price: new FormControl(product.price),
-      description: new FormControl(product.description)
+              private router: Router) {
+    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      this.id = +paramMap.get('productId');
+      this.getProduct(this.id);
     });
   }
 
-  updateProduct(id: any) {
+  ngOnInit() {
+    this.categoryService.getAll().subscribe(value => {
+      this.categoryList = value;
+    });
+  }
+
+  getProduct(id: number) {
+    return this.productService.findById(id).subscribe(value => {
+      this.productForm = new FormGroup({
+        name: new FormControl(value.name),
+        price: new FormControl(value.price),
+        description: new FormControl(value.description),
+        category: new FormControl(value.category)
+      });
+    });
+  }
+
+  updateProduct(id: number) {
     const product = this.productForm.value;
-    this.productService.updateProduct(id, product);
-    alert('Cập nhật thành công!');
-    this.router.navigateByUrl('');
+    this.productService.updateProduct(id, product).subscribe(() => {
+      this.router.navigateByUrl('');
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  compareWithId(item1, item2) {
+    return item1 && item2 && item1.id === item2.id;
   }
 }

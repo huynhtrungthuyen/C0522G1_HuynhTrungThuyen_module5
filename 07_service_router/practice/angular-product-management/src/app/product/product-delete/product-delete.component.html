@@ -1,22 +1,22 @@
 <h1>Xoá sản phẩm</h1>
 <a routerLink="">Quay lại danh sách sản phẩm</a>
-<form [formGroup]="productForm" (ngSubmit)="deleteProduct(productId)">
+<form [formGroup]="productForm" (ngSubmit)="deleteProduct(id)">
   <table>
     <tr>
-      <td>Mã sản phẩm:</td>
-      <td><input type="number" formControlName="id"></td>
-    </tr>
-    <tr>
       <td>Tên sản phẩm:</td>
-      <td><input type="text" formControlName="name"></td>
+      <td><input type="text" formControlName="name" readonly></td>
     </tr>
     <tr>
       <td>Giá sản phẩm</td>
-      <td><input type="number" formControlName="price"></td>
+      <td><input type="number" formControlName="price" readonly></td>
     </tr>
     <tr>
       <td>Mô tả về sản phẩm</td>
-      <td><input type="text" formControlName="description"></td>
+      <td><input type="text" formControlName="description" readonly></td>
+    </tr>
+    <tr>
+      <td>Danh mục:</td>
+      <td><input type="text" formControlName="category" readonly></td>
     </tr>
     <tr>
       <td></td>

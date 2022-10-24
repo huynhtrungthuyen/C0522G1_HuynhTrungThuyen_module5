@@ -1,11 +1,7 @@
 <h1>Tạo sản phẩm mới</h1>
 <a routerLink="">Quay lại danh sách sản phẩm</a>
-<form [formGroup]="productForm" (ngSubmit)="submit()">
+<form [formGroup]="productForm" (ngSubmit)="submit()" *ngIf="productForm != undefined">
   <table>
-    <tr>
-      <td>Mã sản phẩm:</td>
-      <td><input type="number" formControlName="id"></td>
-    </tr>
     <tr>
       <td>Tên sản phẩm:</td>
       <td><input type="text" formControlName="name"></td>
@@ -17,6 +13,15 @@
     <tr>
       <td>Mô tả về sản phẩm</td>
       <td><input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <td>Danh mục sản phẩm:</td>
+      <td>
+        <select formControlName="category">
+          <option value="" disabled>Chọn danh mục</option>
+          <option *ngFor="let item of categoryList" [ngValue]="item">{{item.name}}</option>
+        </select>
+      </td>
     </tr>
     <tr>
       <td></td>
