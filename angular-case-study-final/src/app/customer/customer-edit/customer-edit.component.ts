@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {CustomerService} from '../../service/customer.service';
 import {CustomerType} from '../../model/customer-type';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-customer-edit',
@@ -53,6 +54,15 @@ export class CustomerEditComponent implements OnInit {
   updateCustomer(id: number) {
     const customer = this.customerFormGroup.value;
     this.customerService.updateCustomer(id, customer).subscribe(() => {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Chỉnh sửa thành công!',
+        text: 'Khách hàng: ' + customer.customerName,
+        showConfirmButton: false,
+        timer: 2500
+      });
+
       this.router.navigateByUrl('customer/list');
     }, error => {
       console.log(error);

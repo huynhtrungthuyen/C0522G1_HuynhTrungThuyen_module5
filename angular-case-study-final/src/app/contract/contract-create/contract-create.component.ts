@@ -7,6 +7,7 @@ import {Facility} from '../../model/facility';
 import {FacilityService} from '../../service/facility.service';
 import {ContractService} from '../../service/contract.service';
 import {Contract} from '../../model/contract';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contract-create',
@@ -69,6 +70,21 @@ export class ContractCreateComponent implements OnInit {
     }, error => {
       console.log(error);
     }, () => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Thêm mới thành công!',
+        text: 'Hợp đồng đã được kí.',
+        width: 600,
+        padding: '3em',
+        color: '#716add',
+        background: '#fff url(/images/trees.png)',
+        backdrop: `
+        rgba(0,0,123,0.4)
+        url("/images/nyan-cat.gif")
+        left top
+        no-repeat
+      `
+      });
       this.router.navigateByUrl('contract/list');
       console.log('Thêm mới hợp đồng thành công thành công!');
     });

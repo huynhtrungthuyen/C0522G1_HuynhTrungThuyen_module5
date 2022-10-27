@@ -22,7 +22,6 @@
       "facilityImage": "https://www.furama.com/images/FRF_studioroom_ibe4.jpg"
     },
     {
-      "id": 2,
       "facilityName": "Superior Angular",
       "facilityArea": 150,
       "rentCost": 400000,
@@ -40,7 +39,8 @@
         "id": 3,
         "facilityTypeName": "Room"
       },
-      "facilityImage": "https://www.furama.com/images/ibe_Superior.jpg"
+      "facilityImage": "https://www.furama.com/images/ibe_Superior.jpg",
+      "id": 2
     },
     {
       "id": 3,
@@ -188,6 +188,27 @@
         "facilityTypeName": "Room"
       },
       "facilityImage": "https://www.furama.com/images/ibe_frf_Executive-Suite.jpg"
+    },
+    {
+      "facilityName": "Theme Suite Directive",
+      "facilityArea": 400,
+      "rentCost": 50000000,
+      "maxPeople": 3,
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "Có ghế tình yêu",
+      "poolArea": "",
+      "numberOfFloors": 1,
+      "facilityFree": "",
+      "rentType": {
+        "id": 4,
+        "rentTypeName": "Năm"
+      },
+      "facilityType": {
+        "id": 2,
+        "facilityTypeName": "House"
+      },
+      "facilityImage": "https://www.furama.com/images/ibe_Safari_Suite.jpg",
+      "id": 10
     }
   ],
   "facilityTypes": [
@@ -224,9 +245,8 @@
   ],
   "customers": [
     {
-      "id": 1,
       "customerName": "Võ Văn Tý",
-      "customerBirthday": "2001-11-20",
+      "customerBirthday": "2001-01-20",
       "customerGender": 0,
       "customerIdCard": "123456789",
       "customerPhone": "0901111111",
@@ -235,7 +255,8 @@
       "customerType": {
         "id": 3,
         "customerTypeName": "Gold"
-      }
+      },
+      "id": 1
     },
     {
       "id": 2,
@@ -266,7 +287,6 @@
       }
     },
     {
-      "id": 4,
       "customerName": "Hồ Thị Thủy Tiên",
       "customerBirthday": "2000-03-20",
       "customerGender": 1,
@@ -277,24 +297,10 @@
       "customerType": {
         "id": 3,
         "customerTypeName": "Gold"
-      }
+      },
+      "id": 4
     },
     {
-      "id": 5,
-      "customerName": "Đặng Ngọc Huy",
-      "customerBirthday": "1998-10-20",
-      "customerGender": 2,
-      "customerIdCard": "132316358",
-      "customerPhone": "0905555555",
-      "customerEmail": "huy3D@gmail.com",
-      "customerAddress": "chợ Miếu Bông, Quảng Nam",
-      "customerType": {
-        "id": 1,
-        "customerTypeName": "Member"
-      }
-    },
-    {
-      "id": 6,
       "customerName": "Hồ Văn Nam",
       "customerBirthday": "1993-07-26",
       "customerGender": 2,
@@ -305,7 +311,8 @@
       "customerType": {
         "id": 5,
         "customerTypeName": "Diamond"
-      }
+      },
+      "id": 6
     },
     {
       "id": 7,
@@ -320,6 +327,34 @@
         "id": 5,
         "customerTypeName": "Diamond"
       }
+    },
+    {
+      "customerName": "Nguyễn Văn Phúc",
+      "customerBirthday": "1998-12-12",
+      "customerGender": 2,
+      "customerIdCard": "213521123",
+      "customerPhone": "0902314212",
+      "customerEmail": "naruto@gmail.com",
+      "customerAddress": "bản Yên Thành, Nghệ An",
+      "customerType": {
+        "id": 3,
+        "customerTypeName": "Gold"
+      },
+      "id": 8
+    },
+    {
+      "customerName": "Phạm Đạt",
+      "customerBirthday": "1993-06-08",
+      "customerGender": 2,
+      "customerIdCard": "231421343",
+      "customerPhone": "0918573443",
+      "customerEmail": "pham.dat.gay@gmail.com",
+      "customerAddress": "đảo Lý Sơn, Đà Nẵng",
+      "customerType": {
+        "id": 4,
+        "customerTypeName": "Platinium"
+      },
+      "id": 9
     }
   ],
   "customerTypes": [
@@ -589,6 +624,129 @@
           "facilityTypeName": "Villa"
         },
         "facilityImage": "https://pix10.agoda.net/hotelImages/2601996/0/7b0a95ae1cbf0f0650ff89ff15cbfbfb.jpg?ca=7&ce=1&s=1024x768"
+      }
+    },
+    {
+      "id": 7,
+      "startDate": "2022-10-27",
+      "endDate": "2022-10-28",
+      "deposit": 0,
+      "customer": {
+        "id": 2,
+        "customerName": "Hồ Thị Thủy Lợi",
+        "customerBirthday": "1997-02-14",
+        "customerGender": 2,
+        "customerIdCard": "132314664",
+        "customerPhone": "0902222222",
+        "customerEmail": "ho.thuy.loi@gmail.com",
+        "customerAddress": "chùa Linh Ứng, Đà Nẵng",
+        "customerType": {
+          "id": 5,
+          "customerTypeName": "Diamond"
+        }
+      },
+      "facility": {
+        "id": 4,
+        "facilityName": "Villa Beach Back Jquery",
+        "facilityArea": 1200,
+        "rentCost": 7500000,
+        "maxPeople": 7,
+        "standardRoom": "Vip",
+        "descriptionOtherConvenience": "Có hồ bơi",
+        "poolArea": 80,
+        "numberOfFloors": 4,
+        "facilityFree": "",
+        "rentType": {
+          "id": 2,
+          "rentTypeName": "Ngày"
+        },
+        "facilityType": {
+          "id": 1,
+          "facilityTypeName": "Villa"
+        },
+        "facilityImage": "https://media-cdn.tripadvisor.com/media/vr-splice-j/02/8e/d7/b8.jpg"
+      }
+    },
+    {
+      "id": 8,
+      "startDate": "2022-10-27",
+      "endDate": "2022-10-28",
+      "deposit": 0,
+      "customer": {
+        "customerName": "Hồ Thị Thủy Tiên",
+        "customerBirthday": "2000-03-20",
+        "customerGender": 1,
+        "customerIdCard": "132222264",
+        "customerPhone": "0904444444",
+        "customerEmail": "tien.map.mo@gmail.com",
+        "customerAddress": "huyện Núi Thành, Quảng Nam",
+        "customerType": {
+          "id": 3,
+          "customerTypeName": "Gold"
+        },
+        "id": 4
+      },
+      "facility": {
+        "facilityName": "Theme Suite Directive",
+        "facilityArea": 400,
+        "rentCost": 50000000,
+        "maxPeople": 3,
+        "standardRoom": "vip",
+        "descriptionOtherConvenience": "Có ghế tình yêu",
+        "poolArea": "",
+        "numberOfFloors": 1,
+        "facilityFree": "",
+        "rentType": {
+          "id": 4,
+          "rentTypeName": "Năm"
+        },
+        "facilityType": {
+          "id": 2,
+          "facilityTypeName": "House"
+        },
+        "facilityImage": "https://www.furama.com/images/ibe_Safari_Suite.jpg",
+        "id": 10
+      }
+    },
+    {
+      "id": 9,
+      "startDate": "2022-10-27",
+      "endDate": "2022-10-28",
+      "deposit": 200000,
+      "customer": {
+        "customerName": "Võ Văn Tý",
+        "customerBirthday": "2001-01-20",
+        "customerGender": 0,
+        "customerIdCard": "123456789",
+        "customerPhone": "0901111111",
+        "customerEmail": "cu.ty@gmail.com",
+        "customerAddress": "bản LắkKonKu, Gia Lai",
+        "customerType": {
+          "id": 3,
+          "customerTypeName": "Gold"
+        },
+        "id": 1
+      },
+      "facility": {
+        "facilityName": "Theme Suite Directive",
+        "facilityArea": 400,
+        "rentCost": 50000000,
+        "maxPeople": 3,
+        "standardRoom": "vip",
+        "descriptionOtherConvenience": "Có ghế tình yêu",
+        "poolArea": "",
+        "numberOfFloors": 1,
+        "facilityFree": "",
+        "rentType": {
+          "id": 4,
+          "rentTypeName": "Năm"
+        },
+        "facilityType": {
+          "id": 2,
+          "facilityTypeName": "House"
+        },
+        "facilityImage": "https://www.furama.com/images/ibe_Safari_Suite.jpg",
+        "id": 10
       }
     }
   ]

@@ -10,10 +10,22 @@ import {CustomerType} from '../model/customer-type';
 export class CustomerService {
   private API_URL = 'http://localhost:3000/';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   findAllCustomer(): Observable<Customer[]> {
     return this.httpClient.get<Customer[]>(this.API_URL + 'customers');
+  }
+
+  findAllCustomerSearch(nameSearch: string, addressSearch: string, phoneSearch: string): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.API_URL +
+      'customers?customerName_like=' + nameSearch + '&customerAddress_like=' + addressSearch + '&customerPhone_like=' + phoneSearch);
+  }
+
+  findCustomerSearchPaging(numberRecord: number, curPage: number,
+                           nameSearch: string, addressSearch: string, phoneSearch: string): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.API_URL + 'customers?_page=' + curPage + '&_limit=' + numberRecord +
+      '&customerName_like=' + nameSearch + '&customerAddress_like=' + addressSearch + '&customerPhone_like=' + phoneSearch);
   }
 
   deleteCustomer(id: number): Observable<Customer> {

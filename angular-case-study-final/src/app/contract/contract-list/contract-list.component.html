@@ -17,22 +17,22 @@
       <thead>
       <tr class="table-dark text-light">
         <th class="text-center">STT <i class="fa-sharp fa-solid fa-bolt"></i></th>
-        <th>Tên khách hàng <i class="fa-solid fa-person-circle-question"></i></th>
-        <th>Tên dịch vụ <i class="fa-solid fa-house"></i></th>
-        <th>Ngày làm hợp đồng <i class="fa-regular fa-calendar"></i></th>
-        <th>Ngày kết thúc hợp đồng <i class="fa-regular fa-calendar"></i></th>
-        <th>Tiền đặt cọc <i class="fa-solid fa-money-bill-wave"></i></th>
-        <th>Tổng tiền <i class="fa-solid fa-dollar-sign"></i></th>
+        <th class="text-center">Tên khách hàng <i class="fa-solid fa-person-circle-question"></i></th>
+        <th class="text-center">Tên dịch vụ <i class="fa-solid fa-house"></i></th>
+        <th class="text-center">Ngày làm hợp đồng <i class="fa-regular fa-calendar"></i></th>
+        <th class="text-center">Ngày kết thúc hợp đồng <i class="fa-regular fa-calendar"></i></th>
+        <th class="text-center">Tiền đặt cọc <i class="fa-solid fa-money-bill-wave"></i></th>
+        <th class="text-center">Tổng tiền <i class="fa-solid fa-dollar-sign"></i></th>
       </tr>
       </thead>
 
       <tbody>
       <tr *ngFor="let item of customerListPaging; index as i">
-        <td class="text-center">{{i + 1}}</td>
+        <td class="text-center">{{i + 1 + (curPage - 1) * 5 }}</td>
         <td>{{item.customer.customerName}}</td>
         <td>{{item.facility.facilityName}}</td>
-        <td>{{item.startDate | date: "dd/MM/yyyy"}}</td>
-        <td>{{item.endDate | date: "dd/MM/yyyy"}}</td>
+        <td class="text-center">{{item.startDate | date: "dd/MM/yyyy"}}</td>
+        <td class="text-center">{{item.endDate | date: "dd/MM/yyyy"}}</td>
         <td>{{item.deposit | currency: "VND"}}</td>
         <td>{{item.deposit + item.facility.rentCost | currency: "VND"}}</td>
       </tr>

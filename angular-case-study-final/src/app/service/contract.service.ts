@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Contract} from '../model/contract';
+import {Customer} from '../model/customer';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,10 @@ export class ContractService {
 
   findAllContract(): Observable<Contract[]> {
     return this.httpClient.get<Contract[]>(this.API_URL + 'contracts');
+  }
+
+  findContractPaging(numberRecord: number, curPage: number): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.API_URL + 'contracts?_page=' + curPage + '&_limit=' + numberRecord);
   }
 
   addContract(contract): Observable<Contract> {

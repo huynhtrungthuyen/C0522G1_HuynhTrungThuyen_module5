@@ -30,7 +30,7 @@ import { CategoryDeleteComponent } from './category/category-delete/category-del
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

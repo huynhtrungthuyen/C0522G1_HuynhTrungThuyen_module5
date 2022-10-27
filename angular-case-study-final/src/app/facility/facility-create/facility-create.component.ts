@@ -4,6 +4,7 @@ import {FacilityService} from '../../service/facility.service';
 import {Router} from '@angular/router';
 import {FacilityType} from '../../model/facility-type';
 import {RentType} from '../../model/rent-type';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-facility-create',
@@ -55,6 +56,13 @@ export class FacilityCreateComponent implements OnInit {
     }, error => {
       console.log(error);
     }, () => {
+      Swal.fire({
+        title: 'Thêm mới thành công!',
+        text: 'Dịch vụ: ' + facility.facilityName,
+        imageUrl: facility.facilityImage,
+        imageHeight: 250,
+        imageWidth: 400
+      });
       this.router.navigateByUrl('facility/list');
       console.log('Thêm mới dịch vụ thành công!');
     });

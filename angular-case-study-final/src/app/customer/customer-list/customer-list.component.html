@@ -2,15 +2,6 @@
   <h2 class="text-center fw-bold text-light mt-3">
     DANH SÁCH KHÁCH HÀNG <i class="fa-solid fa-person-circle-question"></i></h2>
 
-  <div *ngIf="mess !== ''">
-    <div class="justify-content-center d-flex">
-      <div class="alert alert-success alert-dismissible fade show w-50 text-center">
-        <strong>{{mess}}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      </div>
-    </div>
-  </div>
-
   <nav class="navbar navbar-expand-lg py-0 my-0">
     <div class="container-fluid">
       <a routerLink="/customer/create">
@@ -39,14 +30,14 @@
     <thead>
     <tr class="table-dark text-light">
       <th class="text-center">STT <i class="fa-sharp fa-solid fa-bolt"></i></th>
-      <th>Tên khách hàng <i class="fa-solid fa-person-circle-question"></i></th>
-      <th>Ngày sinh <i class="fa-regular fa-calendar"></i></th>
-      <th>Giới tính <i class="fa-solid fa-heart"></i></th>
-      <th>Số CMND/CCCD <i class="fa-solid fa-id-card"></i></th>
-      <th>SĐT <i class="fa-solid fa-square-phone"></i></th>
-      <th>Địa chỉ <i class="fa-solid fa-map-location-dot"></i></th>
-      <th>Email <i class="fa-solid fa-envelope-circle-check"></i></th>
-      <th>Loại khách <i class="fa-solid fa-ranking-star"></i></th>
+      <th class="text-center">Tên khách hàng <i class="fa-solid fa-person-circle-question"></i></th>
+      <th class="text-center">Ngày sinh <i class="fa-regular fa-calendar"></i></th>
+      <th class="text-center">Giới tính <i class="fa-solid fa-heart"></i></th>
+      <th class="text-center">Số CMND/CCCD <i class="fa-solid fa-id-card"></i></th>
+      <th class="text-center">SĐT <i class="fa-solid fa-square-phone"></i></th>
+      <th class="text-center">Địa chỉ <i class="fa-solid fa-map-location-dot"></i></th>
+      <th class="text-center">Email <i class="fa-solid fa-envelope-circle-check"></i></th>
+      <th class="text-center">Loại khách <i class="fa-solid fa-ranking-star"></i></th>
       <th class="text-center">Sửa</th>
       <th class="text-center">Xóa</th>
     </tr>
@@ -54,9 +45,9 @@
 
     <tbody>
     <tr *ngFor="let item of customerListPaging; index as i">
-      <td class="text-center">{{i + 1}}</td>
+      <td class="text-center">{{i + 1 + (curPage - 1) * 5 }}</td>
       <td>{{item.customerName | titlecase}}</td>
-      <td>{{item.customerBirthday | date: "dd/MM/yyyy"}}</td>
+      <td class="text-center">{{item.customerBirthday | date: "dd/MM/yyyy"}}</td>
       <td>
         <span *ngIf="item.customerGender == 0">Nam</span>
         <span *ngIf="item.customerGender == 1">Nữ</span>
@@ -94,7 +85,8 @@
         <a class="page-link">&laquo;</a>
       </li>
 
-      <li class="page-item"><a class="page-link disabled" href="" [text]="curPage + ' / ' + totalPage"></a>
+      <li class="page-item"><a class="page-link disabled" href=""
+                               [text]="curPage + ' / ' + totalPage" *ngIf="curPage <= totalPage"></a>
       </li>
 
       <li class="page-item">

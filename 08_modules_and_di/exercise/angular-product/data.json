@@ -21,14 +21,14 @@
       }
     },
     {
-      "id": 4,
       "name": "IPhone 8",
       "price": 7540000,
       "description": "98%",
       "category": {
         "name": "Vàng mã",
         "id": 4
-      }
+      },
+      "id": 4
     },
     {
       "name": "IPhone 13 Pro Max",
@@ -49,26 +49,6 @@
         "name": "Thức ăn"
       },
       "id": 6
-    },
-    {
-      "name": "Vàng mã Vi Lợi",
-      "price": 50000,
-      "description": "Xấu",
-      "category": {
-        "name": "Vàng mã",
-        "id": 4
-      },
-      "id": 7
-    },
-    {
-      "name": "Durex",
-      "price": 60000,
-      "description": "Bền",
-      "category": {
-        "name": "Đồ chơi",
-        "id": 5
-      },
-      "id": 8
     }
   ],
   "categories": [

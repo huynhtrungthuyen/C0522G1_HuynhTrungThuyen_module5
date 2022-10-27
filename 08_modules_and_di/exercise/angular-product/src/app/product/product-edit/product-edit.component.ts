@@ -4,6 +4,7 @@ import {ProductService} from '../../service/product.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {CategoryService} from '../../service/category.service';
 import {Category} from '../../model/category';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-product-edit',
@@ -45,6 +46,12 @@ export class ProductEditComponent implements OnInit {
   updateProduct(id: number) {
     const product = this.productForm.value;
     this.productService.updateProduct(id, product).subscribe(() => {
+      swal({
+        title: 'CHÚC MỪNG!',
+        text: 'Cập nhập thành công!',
+        icon: 'success',
+        timer: 2000,
+      });
       this.router.navigateByUrl('product');
     }, error => {
       console.log(error);

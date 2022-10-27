@@ -2,15 +2,6 @@
   <div class="px-5">
     <h2 class="text-center fw-bold text-light mt-3">DANH SÁCH DỊCH VỤ <i class="fa-solid fa-house"></i></h2>
 
-    <div *ngIf="mess !== ''">
-      <div class="justify-content-center d-flex">
-        <div class="alert alert-success alert-dismissible fade show w-50 text-center">
-          <strong>{{mess}}</strong>
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-      </div>
-    </div>
-
     <nav class="navbar navbar-expand-lg py-0 my-0">
       <div class="container-fluid">
         <a routerLink="/facility/create">
@@ -69,7 +60,8 @@
           <a class="page-link">&laquo;</a>
         </li>
 
-        <li class="page-item"><a class="page-link disabled" href="" [text]="curPage + ' / ' + totalPage"></a>
+        <li class="page-item"><a class="page-link disabled" href=""
+                                 [text]="curPage + ' / ' + totalPage"  *ngIf="curPage <= totalPage"></a>
         </li>
 
         <li class="page-item">

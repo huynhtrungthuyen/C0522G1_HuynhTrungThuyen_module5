@@ -1,34 +1,34 @@
 {
   "products": [
     {
-      "id": 2,
       "name": "IPhone 11",
       "price": 1560000,
       "description": "Like new",
       "category": {
         "id": 1,
         "name": "Điện tử"
-      }
+      },
+      "id": 2
     },
     {
-      "id": 3,
       "name": "IPhone X",
       "price": 968000,
       "description": "97%",
       "category": {
         "id": 1,
         "name": "Điện tử"
-      }
+      },
+      "id": 3
     },
     {
-      "id": 4,
       "name": "IPhone 8",
       "price": 7540000,
       "description": "98%",
       "category": {
         "name": "Vàng mã",
         "id": 4
-      }
+      },
+      "id": 4
     },
     {
       "name": "IPhone 13 Pro Max",

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FacilityService} from '../../service/facility.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {RentType} from '../../model/rent-type';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-facility-edit',
@@ -52,12 +53,25 @@ export class FacilityEditComponent implements OnInit {
     }, () => {
       console.log('OK!');
     });
-
   }
 
   updateFacility(id: number) {
     const facility = this.facilityFormGroup.value;
     this.facilityService.updateFacility(id, facility).subscribe(() => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Chỉnh sửa thành công!',
+        text: 'Dịch vụ: ' + facility.facilityName,
+        imageUrl: facility.facilityImage,
+        imageHeight: 250,
+        imageWidth: 400,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      });
       this.router.navigateByUrl('facility/list');
     }, error => {
       console.log(error);

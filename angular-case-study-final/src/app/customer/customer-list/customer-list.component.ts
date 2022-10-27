@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../../model/customer';
 import {CustomerService} from '../../service/customer.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-customer-list',
@@ -8,45 +9,49 @@ import {CustomerService} from '../../service/customer.service';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-  customerList: Customer[];
+  customerNameSearch = '';
+  customerAddressSearch = '';
+  customerPhoneSearch = '';
+
   customerListPaging: Customer[];
+  numberRecord = 5;
   curPage = 1;
   totalPage: number;
 
   customerNameDelete: string;
   customerIdDelete: number;
 
-  customerNameSearch = '';
-  customerAddressSearch = '';
-  customerPhoneSearch = '';
-
-  mess: string;
-
   constructor(private customerService: CustomerService) {
   }
 
   ngOnInit(): void {
-    this.customerService.findAllCustomer().subscribe(value => {
-      this.totalPage = Math.ceil(value.length / 5);
-      this.customerListPaging = value.slice(0, 5);
-      this.customerList = value;
+    this.customerService.findAllCustomerSearch(this.customerNameSearch, this.customerAddressSearch, this.customerPhoneSearch)
+      .subscribe(list => {
+        this.totalPage = Math.ceil(list.length / this.numberRecord);
+      }, error => {
+        console.log(error);
+      }, () => {
+        console.log('OK!');
+      });
+
+    this.customerService.findCustomerSearchPaging(this.numberRecord, this.curPage,
+      this.customerNameSearch, this.customerAddressSearch, this.customerPhoneSearch).subscribe(pagingList => {
+      this.customerListPaging = pagingList;
     }, error => {
       console.log(error);
     }, () => {
-      console.log('Hiển thị danh sách khách hàng!');
+      console.log('Hiển thị khách hàng ở trang ' + this.curPage);
     });
-
-    this.mess = '';
   }
 
   next(): void {
     this.curPage++;
-    this.customerListPaging = this.customerList.slice((this.curPage - 1) * 5, this.curPage * 5);
+    this.ngOnInit();
   }
 
   previos(): void {
     this.curPage--;
-    this.customerListPaging = this.customerList.slice((this.curPage - 1) * 5, this.curPage * 5);
+    this.ngOnInit();
   }
 
   getInfoCustomerDelete(customerName: string, customerId: number): void {
@@ -55,9 +60,22 @@ export class CustomerListComponent implements OnInit {
   }
 
   deleteCustomer(): void {
+    this.curPage = 1;
     this.customerService.deleteCustomer(this.customerIdDelete).subscribe(() => {
+      // 1 thông báo vip-pro:
+      Swal.fire({
+        icon: 'success',
+        title: 'Xóa thành công!',
+        text: 'Khách hàng: ' + this.customerNameDelete,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      });
+
       this.ngOnInit();
-      this.mess = 'Xóa khách hàng  [' + this.customerNameDelete + '] thành công!';
     }, error => {
       console.log(error);
     }, () => {
@@ -66,16 +84,7 @@ export class CustomerListComponent implements OnInit {
   }
 
   searchByMore(): void {
-    this.customerService.findAllCustomer().subscribe(value => {
-      this.customerList = value.filter(item => item.customerName.toLowerCase().includes(this.customerNameSearch.toLowerCase())
-        && item.customerAddress.toLowerCase().includes(this.customerAddressSearch.toLowerCase())
-        && item.customerPhone.toLowerCase().includes(this.customerPhoneSearch.toLowerCase()));
-      this.totalPage = Math.ceil(this.customerList.length / 5);
-      this.customerListPaging = this.customerList.slice(0, 5);
-    }, error => {
-      console.log(error);
-    }, () => {
-      console.log('Tìm kiếm khách hàng có tên là: "' + this.customerNameSearch + '" (có ' + this.customerList.length + ' kết quả).');
-    });
+    this.curPage = 1;
+    this.ngOnInit();
   }
 }

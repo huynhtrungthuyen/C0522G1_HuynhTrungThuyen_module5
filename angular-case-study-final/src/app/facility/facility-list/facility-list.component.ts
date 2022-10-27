@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Facility} from '../../model/facility';
 import {FacilityService} from '../../service/facility.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-facility-list',
@@ -8,8 +9,10 @@ import {FacilityService} from '../../service/facility.service';
   styleUrls: ['./facility-list.component.css']
 })
 export class FacilityListComponent implements OnInit {
-  facilityList: Facility[];
+  facilityNameSearch = '';
+
   facilityListPaging: Facility[];
+  numberRecord = 3;
   curPage = 1;
   totalPage: number;
 
@@ -17,35 +20,37 @@ export class FacilityListComponent implements OnInit {
   facilityImageDelete: string;
   facilityIdDelete: number;
 
-  facilityNameSearch = '';
-
-  mess: string;
-
   constructor(private facilityService: FacilityService) {
   }
 
   ngOnInit(): void {
-    this.facilityService.findAllFacility().subscribe(value => {
-      this.totalPage = Math.ceil(value.length / 3);
-      this.facilityListPaging = value.slice(0, 3);
-      this.facilityList = value;
+    this.facilityService.findAllFacilitySearch(this.facilityNameSearch)
+      .subscribe(list => {
+        this.totalPage = Math.ceil(list.length / this.numberRecord);
+      }, error => {
+        console.log(error);
+      }, () => {
+        console.log('OK!');
+      });
+
+    this.facilityService.findFacilitySearchPaging(this.numberRecord, this.curPage,
+      this.facilityNameSearch).subscribe(pagingList => {
+      this.facilityListPaging = pagingList;
     }, error => {
       console.log(error);
     }, () => {
-      console.log('Hiển thị danh sách dịch vụ!');
+      console.log('Hiển thị dịch vụ ở trang ' + this.curPage);
     });
-
-    this.mess = '';
   }
 
   next(): void {
     this.curPage++;
-    this.facilityListPaging = this.facilityList.slice((this.curPage - 1) * 3, this.curPage * 3);
+    this.ngOnInit();
   }
 
   previos(): void {
     this.curPage--;
-    this.facilityListPaging = this.facilityList.slice((this.curPage - 1) * 3, this.curPage * 3);
+    this.ngOnInit();
   }
 
   getInfoFacilityDelete(facilityImage: string, facilityName: string, facilityId: number): void {
@@ -55,9 +60,24 @@ export class FacilityListComponent implements OnInit {
   }
 
   deleteFacility(): void {
+    this.curPage = 1;
     this.facilityService.deleteFacility(this.facilityIdDelete).subscribe(() => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Xóa thành công!',
+        text: 'Dịch vụ: ' + this.facilityNameDelete,
+        width: 600,
+        padding: '3em',
+        color: '#716add',
+        background: '#fff url(/images/trees.png)',
+        backdrop: `
+        rgba(0,0,123,0.4)
+        url("/images/nyan-cat.gif")
+        left top
+        no-repeat
+      `
+      });
       this.ngOnInit();
-      this.mess = 'Xóa dịch vụ  [' + this.facilityNameDelete + '] thành công!';
     }, error => {
       console.log(error);
     }, () => {
@@ -66,14 +86,7 @@ export class FacilityListComponent implements OnInit {
   }
 
   searchName(): void {
-    this.facilityService.findAllFacility().subscribe(value => {
-      this.facilityList = value.filter(item => item.facilityName.toLowerCase().includes(this.facilityNameSearch.toLowerCase()));
-      this.totalPage = Math.ceil(this.facilityList.length / 3);
-      this.facilityListPaging = this.facilityList.slice(0, 3);
-    }, error => {
-      console.log(error);
-    }, () => {
-      console.log('Tìm kiếm dịch vụ có tên là: "' + this.facilityNameSearch + '" (có ' + this.facilityList.length + ' kết quả).');
-    });
+    this.curPage = 1;
+    this.ngOnInit();
   }
 }

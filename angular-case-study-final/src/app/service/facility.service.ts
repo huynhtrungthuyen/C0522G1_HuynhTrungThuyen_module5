@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Facility} from '../model/facility';
 import {FacilityType} from '../model/facility-type';
 import {RentType} from '../model/rent-type';
+import {Customer} from '../model/customer';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,15 @@ export class FacilityService {
 
   findAllFacility(): Observable<Facility[]> {
     return this.httpClient.get<Facility[]>(this.API_URL + 'facilities');
+  }
+
+  findAllFacilitySearch(nameSearch: string): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.API_URL + 'facilities?facilityName_like=' + nameSearch);
+  }
+
+  findFacilitySearchPaging(numberRecord: number, curPage: number, nameSearch: string): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.API_URL + 'facilities?_page=' + curPage + '&_limit=' + numberRecord +
+      '&facilityName_like=' + nameSearch);
   }
 
   deleteFacility(id: number): Observable<Facility> {

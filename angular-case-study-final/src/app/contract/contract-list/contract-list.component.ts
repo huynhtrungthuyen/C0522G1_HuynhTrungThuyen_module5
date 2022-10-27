@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ContractService} from '../../service/contract.service';
 import {Contract} from '../../model/contract';
 
@@ -8,8 +8,8 @@ import {Contract} from '../../model/contract';
   styleUrls: ['./contract-list.component.css']
 })
 export class ContractListComponent implements OnInit {
-  contractList: Contract[];
   customerListPaging: Contract[];
+  numberRecord = 5;
   curPage = 1;
   totalPage: number;
 
@@ -17,10 +17,17 @@ export class ContractListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.contractService.findAllContract().subscribe(value => {
-      this.totalPage = Math.ceil(value.length / 5);
-      this.customerListPaging = value.slice(0, 5);
-      this.contractList = value;
+    this.contractService.findAllContract()
+      .subscribe(list => {
+        this.totalPage = Math.ceil(list.length / this.numberRecord);
+      }, error => {
+        console.log(error);
+      }, () => {
+        console.log('OK!');
+      });
+
+    this.contractService.findContractPaging(this.numberRecord, this.curPage).subscribe(value => {
+      this.customerListPaging = value;
     }, error => {
       console.log(error);
     }, () => {
@@ -30,11 +37,11 @@ export class ContractListComponent implements OnInit {
 
   next(): void {
     this.curPage++;
-    this.customerListPaging = this.contractList.slice((this.curPage - 1) * 5, this.curPage * 5);
+    this.ngOnInit();
   }
 
   previos(): void {
     this.curPage--;
-    this.customerListPaging = this.contractList.slice((this.curPage - 1) * 5, this.curPage * 5);
+    this.ngOnInit();
   }
 }

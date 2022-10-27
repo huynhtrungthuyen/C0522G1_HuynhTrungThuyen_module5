@@ -3,6 +3,7 @@ import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/form
 import {Router} from '@angular/router';
 import {CustomerType} from '../../model/customer-type';
 import {CustomerService} from '../../service/customer.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-customer-create',
@@ -43,6 +44,13 @@ export class CustomerCreateComponent implements OnInit {
     }, error => {
       console.log(error);
     }, () => {
+      Swal.fire({
+        title: 'Thêm mới thành công!',
+        text: 'Khách hàng: ' + customer.customerName,
+        imageUrl: 'https://genk.mediacdn.vn/2018/9/20/a2989534790f069f03671d247dd5222b-15374152422351400600667.gif',
+        imageHeight: 250,
+        imageWidth: 400
+      });
       this.router.navigateByUrl('customer/list');
       console.log('Thêm mới khách hàng thành công!');
     });
@@ -55,37 +63,6 @@ export class CustomerCreateComponent implements OnInit {
     return (curYear - formYear >= 18 && curYear - formYear <= 80) ? null : {invalid18_80: true};
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // checkName(abstractControl: AbstractControl): any {

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {CategoryService} from '../../service/category.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-product-delete',
@@ -39,6 +39,10 @@ export class ProductDeleteComponent implements OnInit {
 
   deleteProduct(id: number) {
     this.productService.deleteProduct(id).subscribe(() => {
+      swal({
+        title: 'SweetAlert!',
+        text: 'Here is my sweet alert!'
+      });
       this.router.navigateByUrl('product');
     }, error => {
       console.log(error);
