@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Customer} from '../../model/customer';
 import {CustomerService} from '../../service/customer.service';
 import Swal from 'sweetalert2';
+import {CustomerType} from '../../model/customer-type';
 
 @Component({
   selector: 'app-customer-list',
@@ -11,10 +12,11 @@ import Swal from 'sweetalert2';
 export class CustomerListComponent implements OnInit {
   customerNameSearch = '';
   customerAddressSearch = '';
-  customerPhoneSearch = '';
+  customerTypeSearch: CustomerType = {id: 6, customerTypeName: ''};
+  customerTypeList: CustomerType[];
 
   customerListPaging: Customer[];
-  numberRecord = 5;
+  numberRecord = 10;
   curPage = 1;
   totalPage: number;
 
@@ -25,7 +27,12 @@ export class CustomerListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.customerService.findAllCustomerSearch(this.customerNameSearch, this.customerAddressSearch, this.customerPhoneSearch)
+    this.customerService.findAllCustomerType().subscribe(value => {
+      this.customerTypeList = value;
+    });
+
+    this.customerService.findAllCustomerSearch(this.customerNameSearch, this.customerAddressSearch,
+      this.customerTypeSearch.customerTypeName)
       .subscribe(list => {
         this.totalPage = Math.ceil(list.length / this.numberRecord);
       }, error => {
@@ -35,7 +42,7 @@ export class CustomerListComponent implements OnInit {
       });
 
     this.customerService.findCustomerSearchPaging(this.numberRecord, this.curPage,
-      this.customerNameSearch, this.customerAddressSearch, this.customerPhoneSearch).subscribe(pagingList => {
+      this.customerNameSearch, this.customerAddressSearch, this.customerTypeSearch.customerTypeName).subscribe(pagingList => {
       this.customerListPaging = pagingList;
     }, error => {
       console.log(error);
@@ -74,6 +81,7 @@ export class CustomerListComponent implements OnInit {
         }
       });
 
+      this.curPage = 1;
       this.ngOnInit();
     }, error => {
       console.log(error);
@@ -83,6 +91,11 @@ export class CustomerListComponent implements OnInit {
   }
 
   searchByMore(): void {
+    this.curPage = 1;
     this.ngOnInit();
+  }
+
+  compareWithId(item1, item2) {
+    return item1 && item2 && item1.id === item2.id;
   }
 }

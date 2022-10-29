@@ -18,8 +18,10 @@
         <input class="form-control me-2" type="text" placeholder="Nhập địa chỉ.." aria-label="Search"
                [(ngModel)]="customerAddressSearch">
 
-        <input class="form-control me-2" type="text" placeholder="Nhập SĐT.." aria-label="Search"
-               [(ngModel)]="customerPhoneSearch">
+        <select class="form-control me-2" [(ngModel)]="customerTypeSearch" [compareWith]="compareWithId">
+          <option value="{{customerTypeSearch}}" disabled>Loại khách..</option>
+          <option *ngFor="let item of customerTypeList" [ngValue]="item">{{item.customerTypeName}}</option>
+        </select>
         <button class="btn btn-light btn-outline-primary" (click)="searchByMore()">
           <i class="fa-solid fa-magnifying-glass"></i></button>
       </div>

@@ -29,7 +29,7 @@ export class CustomerEditComponent implements OnInit {
     });
 
     // this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-    //   this.id = +paramMap.get('id');
+    //   this.customerId = +paramMap.get('id');
     // });
     this.customerId = Number(this.activatedRoute.snapshot.params.id);
 
