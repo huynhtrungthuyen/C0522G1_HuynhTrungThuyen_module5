@@ -8,13 +8,17 @@ import { CustomerCreateComponent } from './customer/customer-create/customer-cre
 import { CustomerEditComponent } from './customer/customer-edit/customer-edit.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerListComponent,
     CustomerCreateComponent,
-    CustomerEditComponent
+    CustomerEditComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

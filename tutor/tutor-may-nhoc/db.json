@@ -177,20 +177,6 @@
       }
     },
     {
-      "id": 13,
-      "customerName": "Hube Cogswell",
-      "customerBirthday": "1987/08/08",
-      "customerGender": 1,
-      "customerIdCard": "361585865",
-      "customerPhone": "0919055764",
-      "customerEmail": "hcogswellc@loc.gov",
-      "customerAddress": "8 Rigney Court",
-      "customerType": {
-        "id": 1,
-        "customerTypeName": "Member"
-      }
-    },
-    {
       "id": 14,
       "customerName": "Duncan Corby",
       "customerBirthday": "1998/04/29",
@@ -213,20 +199,6 @@
       "customerPhone": "0907611914",
       "customerEmail": "mpearcyf@shareasale.com",
       "customerAddress": "4890 Chinook Trail",
-      "customerType": {
-        "id": 1,
-        "customerTypeName": "Member"
-      }
-    },
-    {
-      "id": 17,
-      "customerName": "Suki MacAlpine",
-      "customerBirthday": "1959/06/16",
-      "customerGender": 0,
-      "customerIdCard": "858672333",
-      "customerPhone": "0903788314",
-      "customerEmail": "smacalpineg@networkadvertising.org",
-      "customerAddress": "62554 Cambridge Way",
       "customerType": {
         "id": 1,
         "customerTypeName": "Member"
@@ -261,7 +233,6 @@
       }
     },
     {
-      "id": 21,
       "customerName": "Salvatore Blain",
       "customerBirthday": "1981/07/03",
       "customerGender": 0,
@@ -270,9 +241,10 @@
       "customerEmail": "sblaink@ox.ac.uk",
       "customerAddress": "163 Melrose Court",
       "customerType": {
-        "id": 1,
-        "customerTypeName": "Member"
-      }
+        "id": 4,
+        "customerTypeName": "Platinium"
+      },
+      "id": 21
     },
     {
       "id": 22,
@@ -429,7 +401,6 @@
       }
     },
     {
-      "id": 33,
       "customerName": "Abe Cardenoso",
       "customerBirthday": "1944/06/09",
       "customerGender": 2,
@@ -440,7 +411,8 @@
       "customerType": {
         "id": 1,
         "customerTypeName": "Member"
-      }
+      },
+      "id": 33
     },
     {
       "id": 34,
@@ -521,20 +493,6 @@
       "customerPhone": "0915930194",
       "customerEmail": "tsignori12@istockphoto.com",
       "customerAddress": "57 Coleman Street",
-      "customerType": {
-        "id": 1,
-        "customerTypeName": "Member"
-      }
-    },
-    {
-      "id": 40,
-      "customerName": "Sasha Padginton",
-      "customerBirthday": "1963/08/15",
-      "customerGender": 2,
-      "customerIdCard": "979016997",
-      "customerPhone": "0902917737",
-      "customerEmail": "spadginton13@homestead.com",
-      "customerAddress": "11 Melvin Terrace",
       "customerType": {
         "id": 1,
         "customerTypeName": "Member"
@@ -905,20 +863,6 @@
       }
     },
     {
-      "id": 67,
-      "customerName": "Heida Binion",
-      "customerBirthday": "1993/01/09",
-      "customerGender": 2,
-      "customerIdCard": "149522316",
-      "customerPhone": "0917263650",
-      "customerEmail": "hbinion1u@surveymonkey.com",
-      "customerAddress": "06092 Lukken Parkway",
-      "customerType": {
-        "id": 1,
-        "customerTypeName": "Member"
-      }
-    },
-    {
       "id": 68,
       "customerName": "Ruben Heibel",
       "customerBirthday": "2001/06/09",
@@ -1025,20 +969,6 @@
       "customerPhone": "0914525409",
       "customerEmail": "lcove22@com.com",
       "customerAddress": "70370 Union Circle",
-      "customerType": {
-        "id": 1,
-        "customerTypeName": "Member"
-      }
-    },
-    {
-      "id": 76,
-      "customerName": "Tomi Dowden",
-      "customerBirthday": "1977/03/06",
-      "customerGender": 2,
-      "customerIdCard": "126713268",
-      "customerPhone": "0918255475",
-      "customerEmail": "tdowden23@ucla.edu",
-      "customerAddress": "6424 Meadow Ridge Junction",
       "customerType": {
         "id": 1,
         "customerTypeName": "Member"
@@ -1269,20 +1199,6 @@
       }
     },
     {
-      "id": 93,
-      "customerName": "Arlene Mouget",
-      "customerBirthday": "1960/12/12",
-      "customerGender": 2,
-      "customerIdCard": "635431066",
-      "customerPhone": "0916261172",
-      "customerEmail": "amouget2k@ow.ly",
-      "customerAddress": "9990 Meadow Ridge Center",
-      "customerType": {
-        "id": 1,
-        "customerTypeName": "Member"
-      }
-    },
-    {
       "id": 94,
       "customerName": "Saxe O'Logan",
       "customerBirthday": "1964/10/24",
@@ -1305,20 +1221,6 @@
       "customerPhone": "0911415144",
       "customerEmail": "bclackers2m@tinyurl.com",
       "customerAddress": "0 Charing Cross Plaza",
-      "customerType": {
-        "id": 1,
-        "customerTypeName": "Member"
-      }
-    },
-    {
-      "id": 96,
-      "customerName": "Wiley Shepperd",
-      "customerBirthday": "1982/05/07",
-      "customerGender": 0,
-      "customerIdCard": "732490747",
-      "customerPhone": "0914824988",
-      "customerEmail": "wshepperd2n@chicagotribune.com",
-      "customerAddress": "6087 Macpherson Junction",
       "customerType": {
         "id": 1,
         "customerTypeName": "Member"

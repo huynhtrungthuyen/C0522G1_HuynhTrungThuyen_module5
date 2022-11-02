@@ -4,10 +4,15 @@
 
   <nav class="navbar navbar-expand-lg py-0 my-0">
     <div class="container-fluid">
-      <a routerLink="/create">
-        <button class="btn btn-primary btn-outline-secondary">
+      <a>
+        <button class="btn btn-primary btn-outline-secondary" routerLink="/create">
           <span class="fa-solid fa-person-circle-plus text-light h5 my-auto me-1"></span>
           <span class="text-light"> Thêm mới khách hàng</span>
+        </button>
+
+        <button class="btn btn-warning btn-outline-secondary ms-2" (click)="sortByName()">
+          <span class="fa-solid fa-sort text-dark h5 my-auto me-1"></span>
+          <span class="text-dark"> Sắp xếp theo tên</span>
         </button>
       </a>
 
@@ -18,10 +23,15 @@
         <input class="form-control me-2" type="text" placeholder="Nhập địa chỉ.." aria-label="Search"
                [(ngModel)]="customerAddressSearch">
 
-        <select class="form-control me-2" [(ngModel)]="customerTypeSearch" [compareWith]="compareWithId">
+        <select class="form-select me-2" [(ngModel)]="customerTypeSearch" [compareWith]="compareWithId"
+                aria-label="Search">
           <option value="{{customerTypeSearch}}" disabled>Loại khách..</option>
           <option *ngFor="let item of customerTypeList" [ngValue]="item">{{item.customerTypeName}}</option>
         </select>
+
+        <button class="btn btn-light btn-outline-warning me-2" (click)="resetSearchInput()">
+          <i class="fa-solid fa-xmark"></i></button>
+
         <button class="btn btn-light btn-outline-primary" (click)="searchByMore()">
           <i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
@@ -32,14 +42,14 @@
     <thead>
     <tr class="table-dark text-light">
       <th class="text-center">STT <i class="fa-sharp fa-solid fa-bolt"></i></th>
-      <th>Tên khách hàng <i class="fa-solid fa-person-circle-question"></i></th>
-      <th>Ngày sinh <i class="fa-regular fa-calendar"></i></th>
-      <th>Giới tính <i class="fa-solid fa-heart"></i></th>
-      <th>Số CMND/CCCD <i class="fa-solid fa-id-card"></i></th>
-      <th>SĐT <i class="fa-solid fa-square-phone"></i></th>
-      <th>Địa chỉ <i class="fa-solid fa-map-location-dot"></i></th>
-      <th>Email <i class="fa-solid fa-envelope-circle-check"></i></th>
-      <th>Loại khách <i class="fa-solid fa-ranking-star"></i></th>
+      <th class="text-center">Tên khách hàng <i class="fa-solid fa-person-circle-question"></i></th>
+      <th class="text-center">Ngày sinh <i class="fa-regular fa-calendar"></i></th>
+      <th class="text-center">Giới tính <i class="fa-solid fa-heart"></i></th>
+      <th class="text-center">Số CMND/CCCD <i class="fa-solid fa-id-card"></i></th>
+      <th class="text-center">SĐT <i class="fa-solid fa-square-phone"></i></th>
+      <th class="text-center">Địa chỉ <i class="fa-solid fa-map-location-dot"></i></th>
+      <th class="text-center">Email <i class="fa-solid fa-envelope-circle-check"></i></th>
+      <th class="text-center">Loại khách <i class="fa-solid fa-ranking-star"></i></th>
       <th class="text-center">Sửa</th>
       <th class="text-center">Xóa</th>
     </tr>

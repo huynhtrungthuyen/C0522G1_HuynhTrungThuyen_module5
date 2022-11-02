@@ -1,0 +1,139 @@
+<div class="mx-5 px-5 pt-3 pb-5" *ngIf="accountFormGroup != undefined">
+  <h2 class="text-center fw-bold text-light">CHỈNH SỬA TÀI KHOẢN TIẾT KIỆM</h2>
+
+  <p class="text-center">
+    <a routerLink=""><i class="fa-solid fa-backward"></i> Quay lại trang danh sách tài khoản tiết kiệm</a>
+  </p>
+
+  <div class="d-flex justify-content-center">
+    <form class="w-50 border border-2 border-success p-3 rounded formCSS" novalidate="novalidate"
+          [formGroup]="accountFormGroup" (ngSubmit)="updateAccount(accountId)">
+      <div class="form-group">
+        <label class="h6" for="customer">Khách hàng:</label>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="accountFormGroup.controls.customer.hasError('required') &&
+                      accountFormGroup.controls.customer.touched">
+          Vui lòng chọn khách hàng!
+        </div>
+        <div class="input-group">
+          <select id="customer" class="form-select" formControlName="customer">
+            <option value="" disabled>Chọn khách hàng..</option>
+            <option *ngFor="let item of customerList" [ngValue]="item.customerId">
+              {{item.customerName}} (Mã số: {{item.customerId}})</option>
+          </select>
+          <span class="input-group-text"><i class="fa-solid fa-ranking-star"></i></span>
+        </div>
+        <!--        <div class="alert alert-danger" role="alert"-->
+        <!--             *ngIf="accountFormGroup.get('customer').hasError('required', 'name')-->
+        <!--               && accountFormGroup.get('customer').get('name').touched">-->
+        <!--          Tên khách hàng không được để trống!-->
+        <!--        </div>-->
+        <!--        <div class="alert alert-danger" role="alert"-->
+        <!--             *ngIf="accountFormGroup.get('customer').hasError('pattern', 'name')-->
+        <!--               && accountFormGroup.get('customer').get('name').touched">-->
+        <!--          Tên khách hàng phải viết hoa chữ cái đầu!-->
+        <!--        </div>-->
+        <!--        <div class="input-group">-->
+        <!--          <input type="text" id="customer" class="form-control" placeholder="Nhập tên khách hàng.."-->
+        <!--                 formControlName="name"/>-->
+        <!--          <span class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></span>-->
+        <!--        </div>-->
+      </div>
+
+      <div class="mt-3 form-group">
+        <label for="createDate" class="h6">Ngày mở sổ:</label>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="accountFormGroup.controls.accountCreateDate.hasError('invalidCreateDate') &&
+                      accountFormGroup.controls.accountCreateDate.touched">
+          Ngày tạo tài khoản phải nhỏ hơn hoặc bằng ngày hiện tại!
+        </div>
+        <input type="date" id="createDate" class="form-control" formControlName="accountCreateDate" [max]="curDate"/>
+      </div>
+
+      <div class="mt-3 form-group">
+        <label for="startDate" class="h6">Ngày bắt đầu gửi:</label>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="accountFormGroup.controls.accountStartDate.hasError('invalidStartDate') &&
+                      accountFormGroup.controls.accountStartDate.touched">
+          Ngày bắt đầu gửi phải lớn hơn hoặc bằng ngày hiện tại!
+        </div>
+        <input type="date" id="startDate" class="form-control" formControlName="accountStartDate" [min]="curDate"/>
+      </div>
+
+      <div class="mt-3 form-group">
+        <label class="h6" for="time">Kì hạn:</label>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="accountFormGroup.controls.times.hasError('required') &&
+                      accountFormGroup.controls.times.touched">
+          Vui lòng chọn kì hạn gửi!
+        </div>
+        <div class="input-group">
+          <select id="time" class="form-select" formControlName="times">
+            <option value="" disabled>Chọn kì hạn..</option>
+            <option *ngFor="let item of timeList" [ngValue]="item.timesId">{{item.timesName}}</option>
+          </select>
+          <span class="input-group-text"><i class="fa-solid fa-ranking-star"></i></span>
+        </div>
+      </div>
+
+      <div class="mt-3 form-group">
+        <label for="money" class="h6">Số tiền gửi:</label>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="accountFormGroup.controls.accountMoney.hasError('required') &&
+                      accountFormGroup.controls.accountMoney.touched">
+          Số tiền gửi không được để trống!
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="accountFormGroup.controls.accountMoney.hasError('pattern') &&
+                      accountFormGroup.controls.accountMoney.touched">
+          Số tiền gửi tối thiểu là 10000000đ!
+        </div>
+        <div class="input-group">
+          <input type="text" id="money" class="form-control" placeholder="Nhập số tiền gửi.."
+                 formControlName="accountMoney"/>
+          <span class="input-group-text"><i class="fa-solid fa-id-card"></i></span>
+        </div>
+      </div>
+
+      <div class="mt-3 form-group">
+        <label for="percent" class="h6">Lãi suất:</label>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="accountFormGroup.controls.accountPercent.hasError('required') &&
+                      accountFormGroup.controls.accountPercent.touched">
+          Lãi suất không được để trống!
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="accountFormGroup.controls.accountPercent.hasError('pattern') &&
+                      accountFormGroup.controls.accountPercent.touched">
+          Lãi suất phải lớn hơn 0!
+        </div>
+        <div class="input-group">
+          <input type="text" id="percent" class="form-control" placeholder="Nhập lãi suất.."
+                 formControlName="accountPercent"/>
+          <span class="input-group-text"><i class="fa-solid fa-id-card"></i></span>
+        </div>
+      </div>
+
+      <div class="mt-3 form-group">
+        <label for="promotion" class="h6">Khuyến mãi:</label>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="accountFormGroup.controls.accountPromotion.hasError('required') &&
+                      accountFormGroup.controls.accountPromotion.touched">
+          Khuyến mãi không được để trống!
+        </div>
+        <div class="input-group">
+          <input type="text" id="promotion" class="form-control" placeholder="Nhập khuyến mãi.."
+                 formControlName="accountPromotion"/>
+          <span class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></span>
+        </div>
+      </div>
+
+      <div class="mt-3 text-center">
+        <button class="btn btn-info btn-outline-success btn-sm border border-2 border-success text-dark"
+                [disabled]="accountFormGroup.invalid">
+          -- Lưu <i class="fa-solid fa-floppy-disk"></i> --
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

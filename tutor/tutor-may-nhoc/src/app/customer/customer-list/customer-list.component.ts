@@ -15,8 +15,11 @@ export class CustomerListComponent implements OnInit {
   customerTypeSearch: CustomerType = {id: 6, customerTypeName: ''};
   customerTypeList: CustomerType[];
 
+  numSort = 1;
+  typeSort = 'asc';
+
   customerListPaging: Customer[];
-  numberRecord = 10;
+  numberRecord = 5;
   curPage = 1;
   totalPage: number;
 
@@ -32,7 +35,7 @@ export class CustomerListComponent implements OnInit {
     });
 
     this.customerService.findAllCustomerSearch(this.customerNameSearch, this.customerAddressSearch,
-      this.customerTypeSearch.customerTypeName)
+      this.customerTypeSearch.customerTypeName, this.typeSort)
       .subscribe(list => {
         this.totalPage = Math.ceil(list.length / this.numberRecord);
       }, error => {
@@ -42,13 +45,14 @@ export class CustomerListComponent implements OnInit {
       });
 
     this.customerService.findCustomerSearchPaging(this.numberRecord, this.curPage,
-      this.customerNameSearch, this.customerAddressSearch, this.customerTypeSearch.customerTypeName).subscribe(pagingList => {
-      this.customerListPaging = pagingList;
-    }, error => {
-      console.log(error);
-    }, () => {
-      console.log('Hiển thị khách hàng ở trang ' + this.curPage);
-    });
+      this.customerNameSearch, this.customerAddressSearch, this.customerTypeSearch.customerTypeName, this.typeSort)
+      .subscribe(pagingList => {
+        this.customerListPaging = pagingList;
+      }, error => {
+        console.log(error);
+      }, () => {
+        console.log('Hiển thị khách hàng ở trang ' + this.curPage);
+      });
   }
 
   next(): void {
@@ -97,5 +101,22 @@ export class CustomerListComponent implements OnInit {
 
   compareWithId(item1, item2) {
     return item1 && item2 && item1.id === item2.id;
+  }
+
+  resetSearchInput(): void {
+    this.customerNameSearch = '';
+    this.customerAddressSearch = '';
+    this.customerTypeSearch = {id: 6, customerTypeName: ''};
+  }
+
+  sortByName(): void {
+    this.numSort++;
+    if (this.numSort % 2 === 1) {
+      this.typeSort = 'asc';
+    } else {
+      this.typeSort = 'desc';
+    }
+
+    this.ngOnInit();
   }
 }

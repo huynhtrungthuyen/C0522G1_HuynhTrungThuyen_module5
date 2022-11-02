@@ -13,15 +13,17 @@ export class CustomerService {
   constructor(private httpClient: HttpClient) {
   }
 
-  findAllCustomerSearch(nameSearch: string, addressSearch: string, typeSearch: string): Observable<Customer[]> {
+  findAllCustomerSearch(nameSearch: string, addressSearch: string, typeSearch: string, sort: string): Observable<Customer[]> {
     return this.httpClient.get<Customer[]>(this.API_URL + 'customers?customerName_like=' + nameSearch +
-      '&customerAddress_like=' + addressSearch + '&customerType.customerTypeName_like=' + typeSearch);
+      '&customerAddress_like=' + addressSearch + '&customerType.customerTypeName_like=' + typeSearch +
+      '&_sort=customerName&_order=' + sort);
   }
 
   findCustomerSearchPaging(numberRecord: number, curPage: number,
-                           nameSearch: string, addressSearch: string, typeSearch: string): Observable<Customer[]> {
+                           nameSearch: string, addressSearch: string, typeSearch: string, sort: string): Observable<Customer[]> {
     return this.httpClient.get<Customer[]>(this.API_URL + 'customers?_page=' + curPage + '&_limit=' + numberRecord +
-      '&customerName_like=' + nameSearch + '&customerAddress_like=' + addressSearch + '&customerType.customerTypeName_like=' + typeSearch);
+      '&customerName_like=' + nameSearch + '&customerAddress_like=' + addressSearch + '&customerType.customerTypeName_like=' + typeSearch +
+      '&_sort=customerName&_order=' + sort);
   }
 
   deleteCustomer(id: number): Observable<Customer> {

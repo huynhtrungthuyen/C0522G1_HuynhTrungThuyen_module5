@@ -1,0 +1,516 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "name": "Le Dai Loi"
+    },
+    {
+      "id": 2,
+      "name": "Vo Van Ty"
+    },
+    {
+      "id": 3,
+      "name": "Ho Thuy Tien"
+    },
+    {
+      "id": 4,
+      "name": "Pham Dat"
+    },
+    {
+      "id": 5,
+      "name": "Huynh Nam"
+    },
+    {
+      "id": 6,
+      "name": "Ngoc Lan"
+    },
+    {
+      "id": 7,
+      "name": "Emlyn Rontree"
+    },
+    {
+      "id": 8,
+      "name": "Kingsly Cahalin"
+    },
+    {
+      "id": 9,
+      "name": "Benjamin Rearie"
+    },
+    {
+      "id": 10,
+      "name": "Marty Mochan"
+    },
+    {
+      "id": 11,
+      "name": "Bradford Kiljan"
+    },
+    {
+      "id": 12,
+      "name": "Valaree Millership"
+    },
+    {
+      "id": 13,
+      "name": "Filippo Devanney"
+    },
+    {
+      "id": 14,
+      "name": "Basilius Gerner"
+    },
+    {
+      "id": 15,
+      "name": "Leda Stoffers"
+    },
+    {
+      "id": 16,
+      "name": "Cherey Haddleton"
+    },
+    {
+      "id": 17,
+      "name": "Felipa Brewerton"
+    },
+    {
+      "id": 18,
+      "name": "Halley Zorzenoni"
+    },
+    {
+      "id": 19,
+      "name": "Paulie Sallter"
+    },
+    {
+      "id": 20,
+      "name": "Sheffie Tingley"
+    },
+    {
+      "id": 21,
+      "name": "Fianna Bemrose"
+    },
+    {
+      "id": 22,
+      "name": "Clea Wadelin"
+    },
+    {
+      "id": 23,
+      "name": "Arnie Jewers"
+    },
+    {
+      "id": 24,
+      "name": "Skippie Kepp"
+    },
+    {
+      "id": 25,
+      "name": "Myrwyn Leeder"
+    },
+    {
+      "id": 26,
+      "name": "Wash Greiswood"
+    },
+    {
+      "id": 27,
+      "name": "Vina Firks"
+    },
+    {
+      "id": 28,
+      "name": "Melisent Salsbury"
+    },
+    {
+      "id": 29,
+      "name": "Margery Gercke"
+    },
+    {
+      "id": 30,
+      "name": "Cristiano Ronaldo"
+    }
+  ],
+  "times": [
+    {
+      "id": 1,
+      "name": "3 tháng"
+    },
+    {
+      "id": 2,
+      "name": "6 tháng"
+    },
+    {
+      "id": 3,
+      "name": "1 năm"
+    },
+    {
+      "id": 4,
+      "name": "5 năm"
+    },
+    {
+      "id": 5,
+      "name": "không kỳ hạn"
+    }
+  ],
+  "saveAccount": [
+    {
+      "id": 3,
+      "customer": {
+        "id": 2,
+        "name": "Vo Van Ty"
+      },
+      "createDate": "2022-10-31",
+      "startDate": "2022-10-31",
+      "time": {
+        "id": 1,
+        "name": "3 tháng"
+      },
+      "money": 10000000,
+      "percent": 5,
+      "promotion": "Áo mưa"
+    },
+    {
+      "id": 4,
+      "customer": {
+        "id": 1,
+        "name": "Le Dai Loi"
+      },
+      "createDate": "2022-10-31",
+      "startDate": "2022-10-31",
+      "time": {
+        "id": 1,
+        "name": "3 tháng"
+      },
+      "money": 10000000,
+      "percent": 5,
+      "promotion": "Áo mưa"
+    },
+    {
+      "customer": {
+        "id": 14,
+        "name": "Basilius Gerner"
+      },
+      "createDate": "2022-11-01",
+      "startDate": "2022-11-01",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": 10000000,
+      "percent": 5,
+      "promotion": "Áo mưa",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "customer": {
+        "id": 3,
+        "name": "Ho Thuy Tien"
+      },
+      "createDate": "2022-10-31",
+      "startDate": "2022-10-31",
+      "time": {
+        "id": 1,
+        "name": "3 tháng"
+      },
+      "money": 10000000,
+      "percent": 5,
+      "promotion": "Áo mưa"
+    },
+    {
+      "customer": {
+        "id": 18,
+        "name": "Lionel Messi"
+      },
+      "createDate": "2021-08-06",
+      "startDate": "2022-11-01",
+      "time": {
+        "id": 4,
+        "name": "5 năm"
+      },
+      "money": "50000000",
+      "percent": "1",
+      "promotion": "Durex",
+      "id": 7
+    },
+    {
+      "id": 9,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2020-12-17",
+      "startDate": "2022-11-20",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "70000000",
+      "percent": 4,
+      "promotion": "Durex"
+    },
+    {
+      "id": 10,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2021-06-15",
+      "startDate": "2022-11-01",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "80000000",
+      "percent": 9,
+      "promotion": "Durex"
+    },
+    {
+      "id": 12,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2021-01-03",
+      "startDate": "2022-11-10",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "50000000",
+      "percent": 5,
+      "promotion": "Durex"
+    },
+    {
+      "id": 13,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2021-07-01",
+      "startDate": "2022-12-02",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "60000000",
+      "percent": 8,
+      "promotion": "Durex"
+    },
+    {
+      "id": 14,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2022-04-30",
+      "startDate": "2022-12-02",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "80000000",
+      "percent": 7,
+      "promotion": "Durex"
+    },
+    {
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2022-10-09",
+      "startDate": "2022-11-02",
+      "time": {
+        "id": 5,
+        "name": "không kỳ hạn"
+      },
+      "money": "60000000",
+      "percent": 10,
+      "promotion": "Durex",
+      "id": 15
+    },
+    {
+      "id": 16,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2022-05-05",
+      "startDate": "2022-11-11",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "30000000",
+      "percent": 9,
+      "promotion": "Durex"
+    },
+    {
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2022-02-04",
+      "startDate": "2022-12-14",
+      "time": {
+        "id": 1,
+        "name": "3 tháng"
+      },
+      "money": "10000000",
+      "percent": 6,
+      "promotion": "Durex",
+      "id": 18
+    },
+    {
+      "id": 19,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2021-09-30",
+      "startDate": "2022-12-23",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "40000000",
+      "percent": 4,
+      "promotion": "Durex"
+    },
+    {
+      "id": 21,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2021-12-03",
+      "startDate": "2022-12-18",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "40000000",
+      "percent": 3,
+      "promotion": "Durex"
+    },
+    {
+      "id": 22,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2021-08-30",
+      "startDate": "2022-12-21",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "50000000",
+      "percent": 4,
+      "promotion": "Durex"
+    },
+    {
+      "id": 23,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2021-06-11",
+      "startDate": "2022-12-16",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "60000000",
+      "percent": 4,
+      "promotion": "Durex"
+    },
+    {
+      "id": 25,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2021-04-29",
+      "startDate": "2022-11-22",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "30000000",
+      "percent": 4,
+      "promotion": "Durex"
+    },
+    {
+      "id": 26,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2021-05-13",
+      "startDate": "2022-12-29",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "60000000",
+      "percent": 10,
+      "promotion": "Durex"
+    },
+    {
+      "id": 27,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2022-03-31",
+      "startDate": "2022-11-21",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "20000000",
+      "percent": 8,
+      "promotion": "Durex"
+    },
+    {
+      "id": 28,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2021-12-24",
+      "startDate": "2022-12-26",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "30000000",
+      "percent": 7,
+      "promotion": "Durex"
+    },
+    {
+      "id": 29,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2022-08-13",
+      "startDate": "2022-12-22",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "90000000",
+      "percent": 4,
+      "promotion": "Durex"
+    },
+    {
+      "id": 30,
+      "customer": {
+        "id": 30,
+        "name": "Cristiano Ronaldo"
+      },
+      "createDate": "2022-04-13",
+      "startDate": "2022-11-21",
+      "time": {
+        "id": 3,
+        "name": "1 năm"
+      },
+      "money": "30000000",
+      "percent": 4,
+      "promotion": "Durex"
+    }
+  ]
+}

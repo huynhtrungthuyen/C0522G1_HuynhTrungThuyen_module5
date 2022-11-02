@@ -1,0 +1,138 @@
+<div class="p-3 px-5">
+  <h2 class="text-center fw-bold text-light mt-3">DANH SÁCH TÀI KHOẢN TIẾT KIỆM</h2>
+
+  <nav class="navbar navbar-expand-lg py-0 my-0">
+    <div class="container-fluid">
+      <button class="btn btn-primary btn-outline-secondary mb-2" routerLink="/create">
+        <span class="text-light"> + Thêm mới tài khoản tiết kiệm </span>
+      </button>
+<!--      <div class="d-flex my-2" role="search">-->
+<!--        <input class="form-control me-2" type="text" placeholder="Nhập tên khách hàng.." aria-label="Search"-->
+<!--               [(ngModel)]="customerNameSearch">-->
+
+<!--        <button class="btn btn-light btn-outline-warning me-2" (click)="resetSearchInput()">-->
+<!--          <i class="fa-solid fa-xmark"></i></button>-->
+
+<!--        <button class="btn btn-light btn-outline-primary" (click)="searchByMore()">-->
+<!--          <i class="fa-solid fa-magnifying-glass"></i></button>-->
+<!--      </div>-->
+    </div>
+  </nav>
+
+  <table class="table table-light table-striped table-bordered" id="customerTable">
+        <thead>
+        <tr class="table-dark text-dark">
+          <th class="text-center">Mã số sổ</th>
+          <th class="text-center">Mã khách hàng</th>
+          <th class="text-center">Tên khách hàng</th>
+          <th class="text-center">Ngày mở sổ</th>
+          <th class="text-center">Thời gian bắt đầu gửi</th>
+          <th class="text-center">Kì hạn</th>
+          <th class="text-center">Số tiền gửi</th>
+          <th class="text-center">Lãi suất</th>
+          <th class="text-center">Khuyến mãi</th>
+          <th class="text-center" colspan="2">Trạng thái</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let item of (saveAccount$ | async)!; index as i">
+          <td class="text-center">{{item.accountId}}</td>
+          <td class="text-center">{{item.customer.customerId}}</td>
+          <td>{{item.customer.customerName | titlecase}}</td>
+          <td>{{item.accountCreateDate | date: "dd/MM/yyyy"}}</td>
+          <td>{{item.accountStartDate | date: "dd/MM/yyyy"}}</td>
+          <td>{{item.times.timesName}}</td>
+          <td>{{item.accountMoney | currency: "VND"}}</td>
+          <td>{{item.accountPercent}} %/năm</td>
+          <td>{{item.accountPromotion}}</td>
+
+          <td class="text-center">
+            <a routerLink="/edit/{{item.accountId}}">
+              <button class="btn btn-warning btn-outline-secondary text-dark py-0">
+                Sửa
+              </button>
+            </a>
+          </td>
+          <td class="text-center">
+            <button data-bs-toggle="modal" data-bs-target="#deleteCustomer"
+                    class="btn btn-danger btn-outline-secondary text-white py-0"
+                    (click)="getAccountDelete(item.accountId)">
+              Xóa
+            </button>
+          </td>
+        </tr>
+        </tbody>
+
+<!--    <tr *ngFor="let customer of (saveAccount$ | async)!; index as i">-->
+<!--      <td>{{i + 1}}</td>-->
+<!--      <td>-->
+<!--        <a class="text-decoration-none">{{customer.name}}</a>-->
+<!--      </td>-->
+<!--      <td>-->
+<!--        <span *ngIf="customer.gender == 1">Male</span>-->
+<!--        <span *ngIf="customer.gender == 0">Female</span>-->
+<!--        <span *ngIf="customer.gender == 2">LGBT</span>-->
+<!--      </td>-->
+<!--      <td>{{customer.birthday | date:"dd-MM-yyyy"}}</td>-->
+<!--      <td>{{customer.phone}}</td>-->
+<!--      &lt;!&ndash;      <td>{{customer.email}}</td>&ndash;&gt;-->
+<!--      <td>{{customer.address}}</td>-->
+<!--      <td>{{customer.rank.rankName}}</td>-->
+<!--      <td>-->
+<!--        <a routerLink="/customer/{{customer.id}}" class="btn bg-warning btn-sm">-->
+<!--          <i class="fas fa-address-card"></i>-->
+<!--          Edit-->
+<!--        </a>-->
+
+<!--      </td>-->
+<!--      <td>-->
+<!--        <button (click)="deleteConfirm(customer)" type="button" class="btn bg-danger btn-sm" data-bs-toggle="modal"-->
+<!--                data-bs-target="#exampleModalDel">-->
+<!--          Delete-->
+<!--        </button>-->
+<!--      </td>-->
+<!--    </tr>-->
+  </table>
+
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination
+      [collectionSize]="(total$ | async)!"
+      [(page)]="page"
+      [maxSize]="3"
+      [rotate]="true"
+      [pageSize]="pageSize"
+      [boundaryLinks]="true"
+      (pageChange)="getAllAccount()">
+    </ngb-pagination>
+
+    <label>
+      <select class="form-control-sm" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="getAllAccount()">
+        <option [ngValue]="5">5 sản phẩm / trang</option>
+        <option [ngValue]="7">7 sản phẩm / trang</option>
+        <option [ngValue]="10">10 sản phẩm / trang</option>
+      </select>
+    </label>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteCustomer" tabindex="-1" aria-labelledby="exampleModalLabel1"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modalCSS">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel1">Bạn có chắc chắn muốn xóa?</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <span class="h6">Tài khoản tiết kiệm: </span><strong>Mã số {{idDelete}}</strong>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteAccount()">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
